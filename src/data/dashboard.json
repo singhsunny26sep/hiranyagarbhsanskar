@@ -1,0 +1,232 @@
+{
+  "hero": {
+    "title": "Welcome to Your",
+    "subtitle": "HiranyaGarbha",
+    "description": "Your trusted companion for a healthy, mindful, and joyful pregnancy experience. Access personalized care, nutrition guidance, and wellness support all in one place.",
+    "buttons": [
+      {
+        "text": "Start Your Journey",
+        "link": "/prenatal"
+      },
+      {
+        "text": "View Profile",
+        "link": "/profile"
+      }
+    ]
+  },
+  "featured": {
+    "title": "Your Journey to Parenthood Starts with Us",
+    "description": "At Hiranyagarbha Garbha Sanskar LLP, we bring together ancient wisdom with modern techniques to commemorate the origins of life. Prenatal care is essential for both the mother and the child. Our purpose is to support you through this transforming journey while protecting your and your child's well-being, using the traditional Indian method of Garbha Sanskar, which translates to 'education of mind inside the womb.' We offer expert advice, supporting your overall health and the journey to motherhood. Your journey to parenthood starts here –",
+    "buttons": [
+      {
+        "text": "Learn More",
+        "link": "/prenatal"
+      },
+      {
+        "text": "Our Programs",
+        "link": "/wellness"
+      }
+    ]
+  },
+  "main": {
+    "title": "9 Months of Care, a Lifetime of LOVE",
+    "description": "Creating Lasting Bonds. With Hiranyagarbha Garbha Sanskar LLP, set out on an enriching journey as a parent. Our personalized Garbha Sanskar care guarantees a positive and healthy relationship between you and your unborn child.",
+    "buttons": [
+      {
+        "text": "Learn More",
+        "link": "/prenatal"
+      },
+      {
+        "text": "Our Programs",
+        "link": "/wellness"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": "12",
+      "label": "Weeks Tracked"
+    },
+    {
+      "value": "85%",
+      "label": "Goals Achieved"
+    },
+    {
+      "value": "24",
+      "label": "Sessions Completed"
+    },
+    {
+      "value": "5",
+      "label": "Milestones Reached"
+    }
+  ],
+  "journeyStages": [
+    {
+      "weeks": "1-12",
+      "title": "First Trimester",
+      "description": "Weeks 1-12: Foundation building, early development, and essential care"
+    },
+    {
+      "weeks": "13-26",
+      "title": "Second Trimester",
+      "description": "Weeks 13-26: Energy returns, baby grows rapidly, prepare for delivery"
+    },
+    {
+      "weeks": "27-40",
+      "title": "Third Trimester",
+      "description": "Weeks 27-40: Final preparations, birth planning, and newborn care"
+    }
+  ],
+  "services": [
+    {
+      "title": "Prenatal Care",
+      "description": "Comprehensive medical care and monitoring throughout your pregnancy journey",
+      "link": "/prenatal"
+    },
+    {
+      "title": "Nutrition",
+      "description": "Personalized meal plans and nutritional guidance for optimal health",
+      "link": "/nutrition"
+    },
+    {
+      "title": "Wellness",
+      "description": "Mindful practices, meditation, and emotional support for mothers",
+      "link": "/wellness"
+    }
+  ],
+  "recentActivity": [
+    {
+      "text": "Completed prenatal check-up",
+      "time": "2 days ago"
+    },
+    {
+      "text": "Updated nutrition goals",
+      "time": "1 week ago"
+    },
+    {
+      "text": "Completed meditation session",
+      "time": "3 days ago"
+    }
+  ],
+  "upcomingAppointments": [
+    {
+      "title": "Prenatal Check-up",
+      "doctor": "Dr. Sarah Johnson",
+      "date": "Tomorrow",
+      "time": "10:00 AM"
+    },
+    {
+      "title": "Nutrition Consultation",
+      "doctor": "Dietitian Emma Wilson",
+      "date": "Next Week",
+      "time": "2:00 PM"
+    }
+  ],
+  "wellnessGallery": [
+    {
+      "title": "Prenatal Yoga",
+      "description": "Gentle yoga poses designed specifically for pregnant women to improve flexibility, strength, and relaxation."
+    },
+    {
+      "title": "Healthy Nutrition",
+      "description": "Balanced meals rich in essential nutrients like folic acid, iron, calcium, and omega-3 for you and your baby."
+    },
+    {
+      "title": "Meditation & Mindfulness",
+      "description": "Guided meditation sessions to reduce stress, improve sleep, and connect with your changing body."
+    },
+    {
+      "title": "Regular Check-ups",
+      "description": "Comprehensive prenatal care with monitoring of both mother and baby's health throughout pregnancy."
+    },
+    {
+      "title": "Support Community",
+      "description": "Connect with other expecting mothers for shared experiences, advice, and emotional support."
+    },
+    {
+      "title": "Emotional Well-being",
+      "description": "Tools and resources to manage pregnancy emotions, anxiety, and prepare for motherhood."
+    }
+  ],
+  "team": [
+    {
+      "name": "Dr. Viraja Deshmukh",
+      "role": "CEO (B.H.M.S., PGD in Paed. psychology, CCH, CGO)",
+      "experience": "(Work experience - 9 years)",
+      "image": "v"
+    },
+    {
+      "name": "Mrs Prafullabai Deshmukh",
+      "role": "Designated Partner",
+      "experience": "",
+      "image": "m"
+    },
+    {
+      "name": "Dr Ashish Rathod",
+      "role": "PhD (clinical psychologist)",
+      "experience": "(Work experience - 7 years)",
+      "image": "a"
+    },
+    {
+      "name": "Dr. Sandeep Deshmukh",
+      "role": "MD (MS, MA (Sanskrit))",
+      "experience": "(Work experience - 13 years)",
+      "image": "desmukh"
+    },
+    {
+      "name": "Dr. Swapnil More",
+      "role": "(B.A.M.S, MS, PhD)",
+      "experience": "(Work experience - 10 years)",
+      "image": "l"
+    },
+    {
+      "name": "Dr Ashish Somkunvar",
+      "role": "B.P.Th (A.N.C Physiotherapist)",
+      "experience": "(Work experience - 12 years)",
+      "image": "s"
+    },
+    {
+      "name": "Mr Harshal Marathe",
+      "role": "National Sales Manager, Maharashtra Region And Project Head",
+      "experience": "(Work experience - 13 years)",
+      "image": "f"
+    },
+    {
+      "name": "Dr Priyanka Khedkar",
+      "role": "MBBS MD",
+      "experience": "(Work experience - 6 years)",
+      "image": "la"
+    }
+  ],
+  "clientReviews": [
+    {
+      "name": "Mrs.राजश्री नीरज",
+      "rating": 5,
+      "image": "wa",
+      "review": "नमस्कार मी Mrs.राजश्री नीरज मोरे as a Profession मी make up artist आहे सर्वात पहिले मी हिरण्यगर्भ गर्भ संस्कार व Dr. Viraja mam चे आभार मानते गर्भधारणे दरम्यान गर्भसंस्कार करावे हे सर्वांनाच माहिती असते तसेच मलाही माहिती होते पण त्याची एक proper technique आणि purely मला माझ्या बाळाला त्याचा फायदा मिळवून घेण्यासाठी मी हिरण्यगर्भ गर्भ संस्कार नऊ महिन्यांचा कोर्स जॉईन केला आणि मला तिथे डॉक्टर विरजा मॅडम यांचे मार्गदर्शन मिळाले हिरण्यगर्भ गर्भसंस्कार मध्ये unique method आहे याच्यामध्ये ते नऊ महिन्यांमध्ये प्रत्येक महिन्याच्या चार आठवड्यानुसार प्रत्येक आठवड्याच्या सात दिवसानुसार सात दिवसांच्या प्रत्येक तासांमध्ये काय केलं पाहिजे याच्या daily assignments आहेत आणि त्या आपल्याला दिल्या जातात आणि आपल्याकडून करूनही घेतले जातात म्हणून मला त्या assignments चे खूप फायदे झाले आहेत हिरण्यगर्भ गर्भ संस्कार च्या अभ्यासक्रमा मध्ये spiritual study दिली आहे जेणेकरून बाळाच्या बाळाची आध्यात्मिक विकास होण्यास मदत होते daily routine life चे assistants तसेच diet plan यांनी शारीरिक विकासास मदत होते तसेच प्रत्येक महिन्यानुसार exercise दिलेल्या आहेत कुठला महिन्यामध्ये exercise टाळायच्या प्रत्येक ladies ची pregnancy ही वेगळी असते त्यानुसार exercises पण manage करून ते under observation करून घेतात तसेच काही प्रकारच्या एक्सरसाइज देऊन ते नॉर्मल काय डिलिव्हरी साठी प्रोत्साहित करतात हिरण्यगर्भ गर्भ संस्कार मध्ये बाळाच्या brain development साठी पण काही प्रकारचा अभ्यासक्रम व  tricks दिलेला आहे During pregnancy व after delivery जे काही psychological changes होतात त्यावर कशा पद्धतीने control करावा याचे पण mam नी मार्गदर्शन दिले नऊ महिन्याच्या प्रेग्नेंसी नंतर डिलिव्हरी साठी एका स्त्रीची शारीरिक,मानसिक तयारी कशी असली पाहिजे ती करून घेण्यात येते आणि ह्या सर्व मार्गदर्शनामुळेच माझी ही डिलिव्हरी नॉर्मल होण्यास मदत झाली कारण गर्भ संस्कार दरम्यान लेबर कसे असतात आणि कशा पद्धतीने आपण मॅनेज केले पाहिजे महत्त्वाचं म्हणजे डिलिव्हरी नंतर आई आणि बाळाची काळजी कशी घेतली पाहिजे यावर पण एक हिरण्यगर्भ गर्भ संस्कारच सेशन आहे जेणेकरून आईला बाळाची काळजी कशा पद्धतीने घ्यावी हे लक्षात येईल या सर्व गोष्टीमुळेच आज मला आणि माझ्या बाळाला हॅप्पी आणि हेल्दी लाईफ मिळून आमच्यातील बॉण्ड खूप चांगल्या पद्धतीने बांधल्या गेलेला आहे त्यामुळे हिरण्यगर्भ गर्भ संस्कार चे व डॉ.विरजा मॅम चे मनापासून आभार मानते. Thank you"
+    },
+    {
+      "name": "मी मृणाली सर्वात",
+      "rating": 5,
+      "image": "waa",
+      "review": "नमस्कार मी मृणाली सर्वात पहिले मी देवाचे आभार मानते की देवाने मला एक अमूल्य अशी भेट दिली ते म्हणजे माझं बाळ आणि त्या बाळाचं गर्भात असल्यापासूनच कशा पद्धतीने संगोपन करायचं किंवा कशा प्रकारे त्याचा सर्वांगीक विकास करायचा याचे मार्गदर्शन मला हिरण्यगर्भ गर्भसंस्कार मध्ये मिळाले त्यामुळे सर्वप्रथम मी हिरण्यगर्भ गर्भसंस्कारचे पण मी मनःपूर्वक आभार मानते.गर्भधारणे दरम्यान गर्भसंस्कार करावे हे सर्वांनाच माहिती असते पण actually ते कशा पद्धतीने केले गेले पाहिजे हे माहिती नसतं तसेच ह्या गर्भसंस्काराबद्दल मी पण काही गोष्टींमध्ये confused होते पण मला हिरण्यगर्भ गर्भ संस्कार बद्दल माहिती झाले तेव्हा मी त्यांचे क्लास वगैरे सात महिने पूर्ण मार्गदर्शन घेतले आणि मला त्यांच्या ह्या नऊ महिन्याच्या कोर्समध्ये पूर्ण नऊ महिन्यांमध्ये एका गर्भवती स्त्रीने कशा पद्धतीनेHealthy Diet plan असलं पाहिजे exercise कुठल्या महिन्यामध्ये कुठल्या exercise कोणी केल्या पाहिजे आणि नाही केल्या पाहिजे याबद्दलही ते खोलवर असं मार्गदर्शन देतात आणि ते स्वतः under supervision करूनही घेतात आहेत तसेच काही प्रकारचे गेम्स आहेत जे की बाळाच्या Brain development मध्ये पण महत्त्वाचा role आहे आणि आजकालच्या अशा Busy life मुळे आपण स्वतःसाठी वेळ मिळून घेऊ शकत नाही तर आपल्याला गर्भसंस्काराच्या मार्फत आपण बाळाला, कुटुंबाला योग्य पद्धतीचा वेळ देतो  आणि त्यामुळे आपल्यातील mother baby father baby, Family bonding विकास होतो  त्यासोबतच बाळाची आध्यात्मिक विकास होण्यासाठी एका विशिष्ट पद्धतीचा अभ्यासक्रम गर्भवती स्त्रीला दिला जातो आणि तो त्यांच्याकडून पूर्ण करून घेतला जातो.महत्त्वाचं म्हणजे मला हिरण्यगर्भ गर्भ संस्कार मध्ये त्यांचं schedule फार आवडलाय की ते नऊ महिने गर्भवती स्त्री त्यांच्या टीमशी connected राहते तसेच त्यांची expert team कशा पद्धतीने तिला monthly, weakly and day by day कश्या पद्धतीने कुटला अभ्यासक्रम आणि काय करून घ्यायला पाहिजे आणि नाही घ्यायला पाहिजे याबद्दल योग्य मार्गदर्शन मिळतं त्यामुळे त्यामुळे मला व माझ्या बाळाला पण त्याचा खूप चांगला फायदा मिळाला आणि आज मला माझा बाळ healthy, very active and sharp असल्याचा मला अभिमान आनंदही वाटतो त्यामुळे मी परत एक वेळा हिरण्यगर्भ गर्भसंस्कारचे परत एक वेळा आभार मानते. Thank you."
+    },
+    {
+      "name": "Mrs.वैष्णवी किरण देशमुख",
+      "rating": 5,
+      "image": "w",
+      "review": "नमस्कार मी Mrs.वैष्णवी किरण देशमुख मी as a प्रोफेशन टीचर आहे. सर्वात पहिले मी हिरण्यगर्भ गर्भसंस्कार चे आभार मानते actually pregnancy दरम्यान गर्भसंस्कार करावे हे सर्वांनाच माहिती असते तसेच मलाही माहिती होते पण ते गर्भसंस्कारची जी proper technique म्हणजे पद्धत कशी असते ते मलाही माहिती नव्हते म्हणून मी Dr. विरजा मॅम चे हिरण्यगर्भ गर्भ संस्कार join केले आणि मला माझ्या बाळाचा सर्वांगीण विकास करण्यासाठी एक proper way मिळाला हिरण्यगर्भ गर्भ संस्कार मुळे मला खूप सारे फायदे मिळाले त्यातले काही मी share करते प्रेग्नेंसी बद्दलची भीती, morning sickness,mood swinging हे मॅम च्या मार्गदर्शनामुळे आणि त्यांच्या daily assignments मुळे मनातून completely निघून जाण्यास मदत झाली हिरण्यगर्भ गर्भसंस्कार मध्ये गर्भ संस्काराचे Day by day schedule ठरलेले आहे त्यामुळे daily diet  plan पासून तर exercise पर्यंत मला माहिती मिळाली आणि ती माझ्याकडून करून घेतली त्यामुळे गर्भधारणे दरम्यान माझं शारीरिक ,मानसिक, आत्मिक आरोग्य चांगलं राहून त्याचा प्रभाव माझ्या होणाऱ्या बाळावर झाला आणि आज माझ्या बाळाचा ही सर्वांगीण विकास होण्यास मदत झाली हिरण्यगर्भ गर्भसंस्कार च्या माध्यमातून मला ज्या योगा exercise दिल्या होत्या आणि मी त्या follow केला त्यामुळे माझी डिलिव्हरी पण नॉर्मल होण्यास मदत झाली आणि त्यामुळे मी आणि माझा बाळ Happy, healthy आहोत. त्यामुळे मी हिरण्यगर्भ गर्भसंस्कारचे आभार मानते तसेच डॉक्टर विरजा मॅडमचे पण आभार मानते Thank you"
+    },
+    {
+      "name": "Meera Joshi",
+      "rating": 5,
+      "image": "initial",
+      "review": "\"Outstanding service! The regular check-ups and monitoring gave me peace of mind. Their team is professional and caring.\""
+    }
+  ],
+  "tip": {
+    "title": "Daily Pregnancy Tip",
+    "tip": "Stay Hydrated!",
+    "description": "Drinking plenty of water is crucial during pregnancy. Aim for at least 8-10 glasses per day to support your increased blood volume and amniotic fluid levels."
+  }
+}
