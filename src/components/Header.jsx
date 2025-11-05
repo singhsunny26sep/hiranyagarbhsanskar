@@ -23,6 +23,7 @@ function Header() {
             <Link to="/prenatal" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Prenatal</Link>
             <Link to="/nutrition" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Nutrition</Link>
             <Link to="/wellness" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Wellness</Link>
+            <Link to="/product" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Products</Link>
             <Link to="/profile" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Profile</Link>
           </nav>
 
@@ -73,6 +74,13 @@ function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Wellness
+              </Link>
+              <Link
+                to="/product"
+                className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium px-2 py-1 rounded hover:bg-purple-50"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Products
               </Link>
               <Link
                 to="/profile"
