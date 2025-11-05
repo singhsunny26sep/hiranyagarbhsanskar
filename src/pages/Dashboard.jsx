@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -11,12 +11,21 @@ import l from "../img/last-clientt.png";
 import s from "../img/swapnil-moe.png";
 import f from "../img/ffw.png";
 import la from "../img/ladye.png";
+import w from "../img/WhatsApp-Image-2024-05-16-at-11.28.05_9b01981f-1.jpg";
+import wa from "../img/WhatsApp-Image-2024-05-16-at-11.29.03_d3774aac.jpg";
+import waa from "../img/WhatsApp-Image-2024-05-16-at-11.32.03_04a3f6ae.jpg";
+
 
 
 
 
 
 function Dashboard() {
+  const [expanded1, setExpanded1] = useState(false);
+  const [expanded2, setExpanded2] = useState(false);
+  const [expanded3, setExpanded3] = useState(false);
+  const [expanded4, setExpanded4] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-100 to-purple-100">
       <Header />
@@ -381,7 +390,7 @@ function Dashboard() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                               <img src={v}/>
+                <img src={v} />
 
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Viraja Deshmukh</h3>
@@ -391,19 +400,19 @@ function Dashboard() {
 
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                              <img src={m}/>
+                <img src={m} />
 
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Mrs Prafullabai Deshmukh</h3>
               <p className="text-green-600 font-medium text-sm mb-3">Designated Partner
 
-</p>
-              
+              </p>
+
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                               <img src={a}/>
+                <img src={a} />
 
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Ashish Rathod</h3>
@@ -413,49 +422,49 @@ function Dashboard() {
 
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={desmukh}/>
+                <img src={desmukh} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Sandeep Deshmukh</h3>
               <p className="text-blue-600 font-medium text-sm mb-3">MD (MS, MA (Sanskrit))</p>
               <p className="text-gray-600 text-xs sm:text-sm">
                 (Work experience - 13 years)</p>
             </div>
-             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={l}/>
+                <img src={l} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Swapnil More</h3>
               <p className="text-blue-600 font-medium text-sm mb-3">(B.A.M.S, MS, PhD)</p>
               <p className="text-gray-600 text-xs sm:text-sm">
                 (Work experience - 10 years)</p>
             </div>
-            
-             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={s}/>
+                <img src={s} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Ashish Somkunvar</h3>
               <p className="text-blue-600 font-medium text-sm mb-3">B.P.Th (A.N.C Physiotherapist)</p>
               <p className="text-gray-600 text-xs sm:text-sm">
-              (Work experience - 12 years)</p>
+                (Work experience - 12 years)</p>
             </div>
-             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={f}/>
+                <img src={f} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Mr Harshal Marathe</h3>
               <p className="text-blue-600 font-medium text-sm mb-3">National Sales Manager, Maharashtra Region And Project Head</p>
               <p className="text-gray-600 text-xs sm:text-sm">
-              (Work experience - 13 years)</p>
+                (Work experience - 13 years)</p>
             </div>
-             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={la}/>
+                <img src={la} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Priyanka Khedkar</h3>
               <p className="text-blue-600 font-medium text-sm mb-3">MBBS MD</p>
               <p className="text-gray-600 text-xs sm:text-sm">
-              (Work experience - 6 years)</p>
+                (Work experience - 6 years)</p>
             </div>
           </div>
         </div>
@@ -468,55 +477,87 @@ function Dashboard() {
               <div className="flex-shrink-0 w-80 sm:w-96 bg-white p-6 rounded-xl shadow-lg">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-purple-600 font-bold text-lg">P</span>
+                    <img src={wa}/>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Priya Sharma</h4>
+                    <h4 className="font-semibold text-gray-800">Mrs.राजश्री नीरज </h4>
                     <div className="flex text-yellow-400">
                       ★★★★★
                     </div>
                   </div>
                 </div>
                 <p className="text-gray-600 text-sm sm:text-base italic">
-                  "The personalized care and nutrition guidance helped me have a healthy pregnancy.
-                  The wellness programs were incredibly supportive throughout my journey."
+                  {expanded1 ? (
+                    <>
+                      नमस्कार मी Mrs.राजश्री नीरज मोरे as a Profession मी make up artist आहे सर्वात पहिले मी हिरण्यगर्भ गर्भ संस्कार व Dr. Viraja mam चे आभार मानते गर्भधारणे दरम्यान गर्भसंस्कार करावे हे सर्वांनाच माहिती असते तसेच मलाही माहिती होते पण त्याची एक proper technique आणि purely मला माझ्या बाळाला त्याचा फायदा मिळवून घेण्यासाठी मी हिरण्यगर्भ गर्भ संस्कार नऊ महिन्यांचा कोर्स जॉईन केला आणि मला तिथे डॉक्टर विरजा मॅडम यांचे मार्गदर्शन मिळाले हिरण्यगर्भ गर्भसंस्कार मध्ये unique method आहे याच्यामध्ये ते नऊ महिन्यांमध्ये प्रत्येक महिन्याच्या चार आठवड्यानुसार प्रत्येक आठवड्याच्या सात दिवसानुसार सात दिवसांच्या प्रत्येक तासांमध्ये काय केलं पाहिजे याच्या daily assignments आहेत आणि त्या आपल्याला दिल्या जातात आणि आपल्याकडून करूनही घेतले जातात म्हणून मला त्या assignments चे खूप फायदे झाले आहेत हिरण्यगर्भ गर्भ संस्कार च्या अभ्यासक्रमा मध्ये spiritual study दिली आहे जेणेकरून बाळाच्या बाळाची आध्यात्मिक विकास होण्यास मदत होते daily routine life चे assistants तसेच diet plan यांनी शारीरिक विकासास मदत होते तसेच प्रत्येक महिन्यानुसार exercise दिलेल्या आहेत कुठला महिन्यामध्ये exercise टाळायच्या प्रत्येक ladies ची pregnancy ही वेगळी असते त्यानुसार exercises पण manage करून ते under observation करून घेतात तसेच काही प्रकारच्या एक्सरसाइज देऊन ते नॉर्मल काय डिलिव्हरी साठी प्रोत्साहित करतात हिरण्यगर्भ गर्भ संस्कार मध्ये बाळाच्या brain development साठी पण काही प्रकारचा अभ्यासक्रम व  tricks दिलेला आहे
+                      During pregnancy व after delivery जे काही psychological changes होतात त्यावर कशा पद्धतीने control करावा याचे पण mam नी मार्गदर्शन दिले नऊ महिन्याच्या प्रेग्नेंसी नंतर डिलिव्हरी साठी एका स्त्रीची शारीरिक,मानसिक तयारी कशी असली पाहिजे ती करून घेण्यात येते आणि ह्या सर्व मार्गदर्शनामुळेच माझी ही डिलिव्हरी नॉर्मल होण्यास मदत झाली कारण गर्भ संस्कार दरम्यान लेबर कसे असतात आणि कशा पद्धतीने आपण मॅनेज केले पाहिजे महत्त्वाचं म्हणजे डिलिव्हरी नंतर आई आणि बाळाची काळजी कशी घेतली पाहिजे यावर पण एक हिरण्यगर्भ गर्भ संस्कारच सेशन आहे जेणेकरून आईला बाळाची काळजी कशा पद्धतीने घ्यावी हे लक्षात येईल या सर्व गोष्टीमुळेच आज मला आणि माझ्या बाळाला हॅप्पी आणि हेल्दी लाईफ मिळून आमच्यातील बॉण्ड खूप चांगल्या पद्धतीने बांधल्या गेलेला आहे त्यामुळे हिरण्यगर्भ गर्भ संस्कार चे व डॉ.विरजा मॅम चे मनापासून आभार मानते.
+                      Thank you
+                    </>
+                  ) : (
+                    <>
+                      नमस्कार मी Mrs.राजश्री नीरज मोरे as a Profession मी make up artist आहे सर्वात पहिले मी हिरण्यगर्भ गर्भ संस्कार व Dr. Viraja mam चे आभार मानते गर्भधारणे दरम्यान गर्भसंस्कार करावे हे सर्वांनाच माहिती असते तसेच मलाही माहिती होते पण त्याची एक proper technique आणि purely मला माझ्या बाळाला त्याचा फायदा मिळवून घेण्यासाठी मी हिरण्यगर्भ गर्भ संस्कार नऊ महिन्यांचा कोर्स जॉईन केला आणि मला तिथे डॉक्टर विरजा मॅडम यांचे मार्गदर्शन मिळाले हिरण्यगर्भ गर्भसंस्कार मध्ये unique method आहे याच्यामध्ये ते नऊ महिन्यांमध्ये प्रत्येक महिन्याच्या चार आठवड्यानुसार प्रत्येक आठवड्याच्या सात दिवसानुसार सात दिवसांच्या प्रत्येक तासांमध्ये काय केलं पाहिजे याच्या daily assignments आहेत आणि त्या आपल्याला दिल्या जातात आणि आपल्याकडून करूनही घेतले जातात म्हणून मला त्या assignments चे खूप फायदे झाले आहेत हिरण्यगर्भ गर्भ संस्कार च्या अभ्यासक्रमा मध्ये spiritual study दिली आहे जेणेकरून बाळाच्या बाळाची आध्यात्मिक विकास होण्यास मदत होते daily routine life चे assistants तसेच diet plan यांनी शारीरिक विकासास मदत होते तसेच प्रत्येक महिन्यानुसार exercise दिलेल्या आहेत कुठला महिन्यामध्ये exercise टाळायच्या प्रत्येक ladies ची pregnancy ही वेगळी असते त्यानुसार exercises पण manage करून ते under observation करून घेतात तसेच काही प्रकारच्या एक्सरसाइज देऊन ते नॉर्मल काय डिलिव्हरी साठी प्रोत्साहित करतात हिरण्यगर्भ गर्भ संस्कार मध्ये बाळाच्या brain development साठी पण काही प्रकारचा अभ्यासक्रम व  tricks दिलेला आहे...
+                    </>
+                  )}
                 </p>
+                <button
+                  onClick={() => setExpanded1(!expanded1)}
+                  className="text-purple-600 hover:text-purple-800 font-medium text-sm mt-2"
+                >
+                  {expanded1 ? 'Read Less' : 'Read More'}
+                </button>
               </div>
 
               <div className="flex-shrink-0 w-80 sm:w-96 bg-white p-6 rounded-xl shadow-lg">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-pink-600 font-bold text-lg">A</span>
+                                     <img src={waa}/>
+
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Anjali Patel</h4>
+                    <h4 className="font-semibold text-gray-800">मी मृणाली सर्वात</h4>
                     <div className="flex text-yellow-400">
                       ★★★★★
                     </div>
                   </div>
                 </div>
                 <p className="text-gray-600 text-sm sm:text-base italic">
-                  "Amazing experience! The meditation sessions helped me stay calm during my first pregnancy.
-                  Highly recommend their prenatal care services."
+
+                  नमस्कार मी मृणाली सर्वात पहिले मी देवाचे आभार मानते की देवाने मला एक अमूल्य अशी भेट दिली ते म्हणजे माझं बाळ आणि त्या बाळाचं गर्भात असल्यापासूनच कशा पद्धतीने संगोपन करायचं किंवा कशा प्रकारे त्याचा सर्वांगीक विकास करायचा याचे मार्गदर्शन मला हिरण्यगर्भ गर्भसंस्कार मध्ये मिळाले त्यामुळे सर्वप्रथम मी हिरण्यगर्भ गर्भसंस्कारचे पण मी मनःपूर्वक आभार मानते.गर्भधारणे दरम्यान गर्भसंस्कार करावे हे सर्वांनाच माहिती असते पण actually ते कशा पद्धतीने केले गेले पाहिजे हे माहिती नसतं तसेच ह्या गर्भसंस्काराबद्दल मी पण काही गोष्टींमध्ये confused होते पण मला हिरण्यगर्भ गर्भ संस्कार बद्दल माहिती झाले तेव्हा मी त्यांचे क्लास वगैरे सात महिने पूर्ण मार्गदर्शन घेतले आणि मला त्यांच्या ह्या नऊ महिन्याच्या कोर्समध्ये पूर्ण नऊ महिन्यांमध्ये एका गर्भवती स्त्रीने कशा पद्धतीनेHealthy Diet plan असलं पाहिजे exercise कुठल्या महिन्यामध्ये कुठल्या exercise कोणी केल्या पाहिजे आणि नाही केल्या पाहिजे याबद्दलही ते खोलवर असं मार्गदर्शन देतात आणि ते स्वतः under supervision करूनही घेतात आहेत तसेच काही प्रकारचे गेम्स आहेत जे की बाळाच्या Brain development मध्ये पण महत्त्वाचा role आहे आणि आजकालच्या अशा Busy life मुळे आपण स्वतःसाठी वेळ मिळून घेऊ शकत नाही तर आपल्याला गर्भसंस्काराच्या मार्फत आपण बाळाला, कुटुंबाला योग्य पद्धतीचा वेळ देतो  आणि त्यामुळे आपल्यातील mother baby father baby, Family bonding विकास होतो  त्यासोबतच बाळाची आध्यात्मिक विकास होण्यासाठी एका विशिष्ट पद्धतीचा अभ्यासक्रम गर्भवती स्त्रीला दिला जातो आणि तो त्यांच्याकडून पूर्ण करून घेतला जातो.महत्त्वाचं म्हणजे मला हिरण्यगर्भ गर्भ संस्कार मध्ये त्यांचं schedule फार आवडलाय की ते नऊ महिने गर्भवती स्त्री त्यांच्या टीमशी connected राहते तसेच त्यांची expert team कशा पद्धतीने तिला monthly, weakly and day by day कश्या पद्धतीने कुठला अभ्यासक्रम आणि काय करून घ्यायला पाहिजे आणि नाही घ्यायला पाहिजे याबद्दल योग्य मार्गदर्शन मिळतं त्यामुळे त्यामुळे मला व माझ्या बाळाला पण त्याचा खूप चांगला फायदा मिळाला आणि आज मला माझा बाळ healthy, very active and sharp असल्याचा मला अभिमान आनंदही वाटतो त्यामुळे मी परत एक वेळा हिरण्यगर्भ गर्भसंस्कारचे परत एक वेळा आभार मानते.
+                  Thank you.
                 </p>
               </div>
 
               <div className="flex-shrink-0 w-80 sm:w-96 bg-white p-6 rounded-xl shadow-lg">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-green-600 font-bold text-lg">R</span>
+                                                        <img src={w}/>
+
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Radhika Singh</h4>
+                    <h4 className="font-semibold text-gray-800">Mrs.वैष्णवी किरण देशमुख</h4>
                     <div className="flex text-yellow-400">
                       ★★★★★
                     </div>
                   </div>
                 </div>
                 <p className="text-gray-600 text-sm sm:text-base italic">
-                  "The nutrition planning was exceptional. I felt confident and healthy throughout my pregnancy.
-                  The support community is also very helpful."
+                  {expanded3 ? (
+                    <>
+                      नमस्कार मी Mrs.वैष्णवी किरण देशमुख मी as a प्रोफेशन टीचर आहे. सर्वात पहिले मी हिरण्यगर्भ गर्भसंस्कार चे आभार मानते actually pregnancy दरम्यान गर्भसंस्कार करावे हे सर्वांनाच माहिती असते तसेच मलाही माहिती होते पण ते गर्भसंस्कारची जी proper technique म्हणजे पद्धत कशी असते ते मलाही माहिती नव्हते म्हणून मी Dr. विरजा मॅम चे हिरण्यगर्भ गर्भ संस्कार join केले आणि मला माझ्या बाळाचा सर्वांगीण विकास करण्यासाठी एक proper way मिळाला हिरण्यगर्भ गर्भ संस्कार मुळे मला खूप सारे फायदे मिळाले त्यातले काही मी share करते प्रेग्नेंसी बद्दलची भीती, morning sickness,mood swinging हे मॅम च्या मार्गदर्शनामुळे आणि त्यांच्या daily assignments मुळे मनातून completely निघून जाण्यास मदत झाली हिरण्यगर्भ गर्भसंस्कार मध्ये गर्भ संस्काराचे Day by day schedule ठरलेले आहे त्यामुळे daily diet  plan पासून तर exercise पर्यंत मला माहिती मिळाली आणि ती माझ्याकडून करून घेतली त्यामुळे गर्भधारणे दरम्यान माझं शारीरिक ,मानसिक, आत्मिक आरोग्य चांगलं राहून त्याचा प्रभाव माझ्या होणाऱ्या बाळावर झाला आणि आज माझ्या बाळाचा ही सर्वांगीण विकास होण्यास मदत झाली हिरण्यगर्भ गर्भसंस्कार च्या माध्यमातून मला ज्या योगा exercise दिल्या होत्या आणि मी त्या follow केला त्यामुळे माझी डिलिव्हरी पण नॉर्मल होण्यास मदत झाली आणि त्यामुळे मी आणि माझा बाळ Happy, healthy आहोत. त्यामुळे मी हिरण्यगर्भ गर्भसंस्कारचे आभार मानते तसेच डॉक्टर विरजा मॅडमचे पण आभार मानते
+                      Thank you
+                    </>
+                  ) : (
+                    <>
+                      नमस्कार मी Mrs.वैष्णवी किरण देशमुख मी as a प्रोफेशन टीचर आहे. सर्वात पहिले मी हिरण्यगर्भ गर्भसंस्कार चे आभार मानते actually pregnancy दरम्यान गर्भसंस्कार करावे हे सर्वांनाच माहिती असते तसेच मलाही माहिती होते पण ते गर्भसंस्कारची जी proper technique म्हणजे पद्धत कशी असते ते मलाही माहिती नव्हते म्हणून मी Dr. विरजा मॅम चे हिरण्यगर्भ गर्भ संस्कार join केले आणि मला माझ्या बाळाचा सर्वांगीण विकास करण्यासाठी एक proper way मिळाला हिरण्यगर्भ गर्भ संस्कार मुळे मला खूप सारे फायदे मिळाले त्यातले काही मी share करते प्रेग्नेंसी बद्दलची भीती, morning sickness,mood swinging हे मॅम च्या मार्गदर्शनामुळे आणि त्यांच्या daily assignments मुळे मनातून completely निघून जाण्यास मदत झाली हिरण्यगर्भ गर्भसंस्कार मध्ये गर्भ संस्काराचे Day by day schedule ठरलेले आहे त्यामुळे daily diet  plan पासून तर exercise पर्यंत मला माहिती मिळाली आणि ती माझ्याकडून करून घेतली त्यामुळे गर्भधारणे दरम्यान माझं शारीरिक ,मानसिक, आत्मिक आरोग्य चांगलं राहून त्याचा प्रभाव माझ्या होणाऱ्या बाळावर झाला आणि आज माझ्या बाळाचा ही सर्वांगीण विकास होण्यास मदत झाली हिरण्यगर्भ गर्भसंस्कार च्या माध्यमातून मला ज्या योगा exercise दिल्या होत्या आणि मी त्या follow केला त्यामुळे माझी डिलिव्हरी पण नॉर्मल होण्यास मदत झाली आणि त्यामुळे मी आणि माझा बाळ Happy, healthy आहोत. त्यामुळे मी हिरण्यगर्भ गर्भसंस्कारचे आभार मानते तसेच डॉक्टर विरजा मॅडमचे पण आभार मानते...
+                    </>
+                  )}
                 </p>
+                <button
+                  onClick={() => setExpanded3(!expanded3)}
+                  className="text-purple-600 hover:text-purple-800 font-medium text-sm mt-2"
+                >
+                  {expanded3 ? 'Read Less' : 'Read More'}
+                </button>
               </div>
 
               <div className="flex-shrink-0 w-80 sm:w-96 bg-white p-6 rounded-xl shadow-lg">
@@ -532,9 +573,24 @@ function Dashboard() {
                   </div>
                 </div>
                 <p className="text-gray-600 text-sm sm:text-base italic">
-                  "Outstanding service! The regular check-ups and monitoring gave me peace of mind.
-                  Their team is professional and caring."
+                  {expanded4 ? (
+                    <>
+                      "Outstanding service! The regular check-ups and monitoring gave me peace of mind.
+                      Their team is professional and caring."
+                    </>
+                  ) : (
+                    <>
+                      "Outstanding service! The regular check-ups and monitoring gave me peace of mind.
+                      Their team is professional and caring."...
+                    </>
+                  )}
                 </p>
+                <button
+                  onClick={() => setExpanded4(!expanded4)}
+                  className="text-purple-600 hover:text-purple-800 font-medium text-sm mt-2"
+                >
+                  {expanded4 ? 'Read Less' : 'Read More'}
+                </button>
               </div>
             </div>
           </div>
