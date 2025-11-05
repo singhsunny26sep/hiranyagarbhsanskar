@@ -73,7 +73,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">Hiranyagarbh Sanskar</h3>
+            <h3 className="text-xl font-bold mb-4">Hiranyagarbh </h3>
             <p className="text-purple-100 mb-4">
               Your trusted companion for a healthy and mindful pregnancy journey.
               We provide comprehensive care, nutrition guidance, and wellness support

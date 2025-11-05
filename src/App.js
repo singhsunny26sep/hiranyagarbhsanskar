@@ -5,6 +5,7 @@ import Nutrition from './pages/Nutrition';
 import Wellness from './pages/Wellness';
 import Profile from './pages/Profile';
 import Product from './pages/Product';
+import Contact from './pages/Contact';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
   <Route path='/wellness' element={<Wellness/>}/>
   <Route path='/profile' element={<Profile/>}/>
   <Route path='/product' element={<Product/>}/>
+  <Route path='/contact' element={<Contact/>}/>
 </Routes>
 </BrowserRouter>
 </>
