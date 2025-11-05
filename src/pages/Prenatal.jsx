@@ -281,7 +281,7 @@ function Prenatal() {
                 Book Appointment
               </button>
               <button className="bg-white hover:bg-gray-50 text-purple-600 px-8 py-3 rounded-lg font-semibold border-2 border-purple-600 transition duration-300">
-                Call Now: +91 9876543210
+                Call Now: +91 8149343628
               </button>
             </div>
           </div>
