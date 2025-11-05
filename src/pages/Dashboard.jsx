@@ -410,15 +410,7 @@ function Dashboard() {
 
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={a} />
-
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Ashish Rathod</h3>
-              <p className="text-pink-600 font-medium text-sm mb-3">PhD (clinical psychologist)</p>
-              <p className="text-gray-600 text-xs sm:text-sm">(Work experience - 7 years)</p>
-            </div>
+           
 
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -431,7 +423,7 @@ function Dashboard() {
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={l} />
+                <img src={s} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Swapnil More</h3>
               <p className="text-blue-600 font-medium text-sm mb-3">(B.A.M.S, MS, PhD)</p>
@@ -441,22 +433,14 @@ function Dashboard() {
 
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={s} />
+                <img src={l} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Ashish Somkunvar</h3>
               <p className="text-blue-600 font-medium text-sm mb-3">B.P.Th (A.N.C Physiotherapist)</p>
               <p className="text-gray-600 text-xs sm:text-sm">
                 (Work experience - 12 years)</p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={f} />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Mr Harshal Marathe</h3>
-              <p className="text-blue-600 font-medium text-sm mb-3">National Sales Manager, Maharashtra Region And Project Head</p>
-              <p className="text-gray-600 text-xs sm:text-sm">
-                (Work experience - 13 years)</p>
-            </div>
+            
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <img src={la} />
