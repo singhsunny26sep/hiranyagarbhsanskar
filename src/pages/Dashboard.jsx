@@ -2,7 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import lady from "../img/women.jpg"
+import lady from "../img/women.jpg";
+import desmukh from "../img/SANDEEP.webp";
+import v from "../img/VIRJAA.webp";
+import m from "../img/Mrs-Pradullabai-Deshmukh.png";
+import a from "../img/ashish-rathodd.png";
+import l from "../img/last-clientt.png";
+import s from "../img/swapnil-moe.png";
+import f from "../img/ffw.png";
+import la from "../img/ladye.png";
+
+
+
+
+
 function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-100 to-purple-100">
@@ -368,39 +381,81 @@ function Dashboard() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-2xl">Dr. S</span>
+                               <img src={v}/>
+
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Sarah Johnson</h3>
-              <p className="text-purple-600 font-medium text-sm mb-3">Chief Obstetrician</p>
-              <p className="text-gray-600 text-xs sm:text-sm">15+ years of experience in maternal care and high-risk pregnancies</p>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Viraja Deshmukh</h3>
+              <p className="text-purple-600 font-medium text-sm mb-3">CEO (B.H.M.S., PGD in Paed. psychology, CCH, CGO)</p>
+              <p className="text-gray-600 text-xs sm:text-sm">(Work experience - 9 years)</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-2xl">Dr. E</span>
+                              <img src={m}/>
+
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Emma Wilson</h3>
-              <p className="text-green-600 font-medium text-sm mb-3">Nutrition Specialist</p>
-              <p className="text-gray-600 text-xs sm:text-sm">Certified dietitian specializing in pregnancy nutrition and meal planning</p>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Mrs Prafullabai Deshmukh</h3>
+              <p className="text-green-600 font-medium text-sm mb-3">Designated Partner
+
+</p>
+              
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-2xl">Ms. L</span>
+                               <img src={a}/>
+
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Lisa Chen</h3>
-              <p className="text-pink-600 font-medium text-sm mb-3">Wellness Coach</p>
-              <p className="text-gray-600 text-xs sm:text-sm">Certified yoga instructor and mindfulness meditation guide for expectant mothers</p>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Ashish Rathod</h3>
+              <p className="text-pink-600 font-medium text-sm mb-3">PhD (clinical psychologist)</p>
+              <p className="text-gray-600 text-xs sm:text-sm">(Work experience - 7 years)</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-2xl">Dr. s</span>
+                <img src={desmukh}/>
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Sandeep Deshmukh</h3>
               <p className="text-blue-600 font-medium text-sm mb-3">MD (MS, MA (Sanskrit))</p>
               <p className="text-gray-600 text-xs sm:text-sm">
                 (Work experience - 13 years)</p>
+            </div>
+             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <img src={l}/>
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Swapnil More</h3>
+              <p className="text-blue-600 font-medium text-sm mb-3">(B.A.M.S, MS, PhD)</p>
+              <p className="text-gray-600 text-xs sm:text-sm">
+                (Work experience - 10 years)</p>
+            </div>
+            
+             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <img src={s}/>
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Ashish Somkunvar</h3>
+              <p className="text-blue-600 font-medium text-sm mb-3">B.P.Th (A.N.C Physiotherapist)</p>
+              <p className="text-gray-600 text-xs sm:text-sm">
+              (Work experience - 12 years)</p>
+            </div>
+             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <img src={f}/>
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Mr Harshal Marathe</h3>
+              <p className="text-blue-600 font-medium text-sm mb-3">National Sales Manager, Maharashtra Region And Project Head</p>
+              <p className="text-gray-600 text-xs sm:text-sm">
+              (Work experience - 13 years)</p>
+            </div>
+             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <img src={la}/>
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Priyanka Khedkar</h3>
+              <p className="text-blue-600 font-medium text-sm mb-3">MBBS MD</p>
+              <p className="text-gray-600 text-xs sm:text-sm">
+              (Work experience - 6 years)</p>
             </div>
           </div>
         </div>
