@@ -233,37 +233,16 @@ function Prenatal() {
           </div>
 
           <div className="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold mb-6">Your Care Team</h2>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">Dr. S</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold">Dr. Sarah Johnson</h3>
-                  <p className="text-purple-100 text-sm">Obstetrician & Lead Physician</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">Ms. L</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold">Lisa Chen</h3>
-                  <p className="text-purple-100 text-sm">Prenatal Wellness Coach</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">Dr. E</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold">Dr. Emma Wilson</h3>
-                  <p className="text-purple-100 text-sm">Nutrition Specialist</p>
-                </div>
-              </div>
+            <h2 className="text-2xl font-bold mb-6">Prenatal Care Excellence</h2>
+            <div className="text-center">
+              <img
+                src={require('../img/women.jpg')}
+                alt="Prenatal Care"
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <p className="text-purple-100">
+                Our comprehensive prenatal care ensures the health and well-being of both mother and baby throughout the entire pregnancy journey.
+              </p>
             </div>
           </div>
         </div>
