@@ -26,6 +26,8 @@ function Header() {
             <Link to="/product" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Products</Link>
             <Link to="/contact" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Contact</Link>
             <Link to="/profile" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Profile</Link>
+            <Link to="/gallery" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Gallery</Link>
+            <Link to="/download" className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Download App</Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -96,6 +98,20 @@ function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Profile
+              </Link>
+              <Link
+                to="/gallery"
+                className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium px-2 py-1 rounded hover:bg-purple-50"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Gallery
+              </Link>
+              <Link
+                to="/download"
+                className="text-gray-700 hover:text-purple-600 transition duration-300 font-medium px-2 py-1 rounded hover:bg-purple-50"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Download App
               </Link>
             </nav>
           </div>
