@@ -8,6 +8,7 @@ import Product from './pages/Product';
 import Download from './pages/Download';
 import Gallery from './pages/Gallery';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
 import Contact from './pages/Contact';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
@@ -31,7 +32,7 @@ export default function App() {
   <Route path='/prenatal' element={<Prenatal/>}/>
   <Route path='/nutrition' element={<Nutrition/>}/>
   <Route path='/wellness' element={<Wellness/>}/>
-  <Route path='/profile' element={<Profile/>}/>
+  <Route path='/profile' element={<Login/>}/>
   <Route path='/product' element={<Product/>}/>
   <Route path='/contact' element={<Contact/>}/>
   <Route path='/download' element={<Download/>}/>
