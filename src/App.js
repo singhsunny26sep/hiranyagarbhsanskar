@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Dashboard from './pages/Dashboard';
 import Prenatal from './pages/Prenatal';
 import Nutrition from './pages/Nutrition';
@@ -7,13 +7,25 @@ import Profile from './pages/Profile';
 import Product from './pages/Product';
 import Download from './pages/Download';
 import Gallery from './pages/Gallery';
+import NotFound from './pages/NotFound';
 import Contact from './pages/Contact';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   return (
 <>
 <BrowserRouter>
+  <ScrollToTop />
 <Routes>
   <Route path='/' element={<Dashboard/>}/>
   <Route path='/prenatal' element={<Prenatal/>}/>
@@ -24,6 +36,7 @@ export default function App() {
   <Route path='/contact' element={<Contact/>}/>
   <Route path='/download' element={<Download/>}/>
   <Route path='/gallery' element={<Gallery/>}/>
+  <Route path='*' element={<NotFound/>}/>
 </Routes>
 </BrowserRouter>
 </>
