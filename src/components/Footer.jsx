@@ -118,6 +118,7 @@ function Footer() {
               <li><Link to="/nutrition" className="text-purple-200 hover:text-white transition duration-300">Nutrition</Link></li>
               <li><Link to="/wellness" className="text-purple-200 hover:text-white transition duration-300">Wellness</Link></li>
               <li><Link to="/profile" className="text-purple-200 hover:text-white transition duration-300">Profile</Link></li>
+              <li><Link to="/privacy-policy" className="text-purple-200 hover:text-white transition duration-300">Privacy Policy</Link></li>
             </ul>
           </div>
 
@@ -143,7 +144,7 @@ function Footer() {
         <div className="border-t border-purple-500 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-purple-200">&copy; 2024 Hiranyagarbh Sanskar. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-purple-200 hover:text-white transition duration-300 text-sm">Privacy Policy</a>
+            <Link to="/privacy-policy" className="text-purple-200 hover:text-white transition duration-300 text-sm">Privacy Policy</Link>
             <a href="#" className="text-purple-200 hover:text-white transition duration-300 text-sm">Terms of Service</a>
             <button
               onClick={() => setIsModalOpen(true)}

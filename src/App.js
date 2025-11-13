@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 function ScrollToTop() {
@@ -37,6 +38,7 @@ export default function App() {
   <Route path='/contact' element={<Contact/>}/>
   <Route path='/download' element={<Download/>}/>
   <Route path='/gallery' element={<Gallery/>}/>
+  <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
   <Route path='*' element={<NotFound/>}/>
 </Routes>
 </BrowserRouter>
