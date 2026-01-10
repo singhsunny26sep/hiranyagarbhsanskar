@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import DataDeletion from './pages/DataDeletion';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 function ScrollToTop() {
@@ -29,18 +30,19 @@ export default function App() {
 <BrowserRouter>
   <ScrollToTop />
 <Routes>
-  <Route path='/' element={<Dashboard/>}/>
-  <Route path='/prenatal' element={<Prenatal/>}/>
-  <Route path='/nutrition' element={<Nutrition/>}/>
-  <Route path='/wellness' element={<Wellness/>}/>
-  <Route path='/profile' element={<Login/>}/>
-  <Route path='/product' element={<Product/>}/>
-  <Route path='/contact' element={<Contact/>}/>
-  <Route path='/download' element={<Download/>}/>
-  <Route path='/gallery' element={<Gallery/>}/>
-  <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
-  <Route path='*' element={<NotFound/>}/>
-</Routes>
+   <Route path='/' element={<Dashboard/>}/>
+   <Route path='/prenatal' element={<Prenatal/>}/>
+   <Route path='/nutrition' element={<Nutrition/>}/>
+   <Route path='/wellness' element={<Wellness/>}/>
+   <Route path='/profile' element={<Login/>}/>
+   <Route path='/product' element={<Product/>}/>
+   <Route path='/contact' element={<Contact/>}/>
+   <Route path='/download' element={<Download/>}/>
+   <Route path='/gallery' element={<Gallery/>}/>
+   <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
+   <Route path='/data-deletion' element={<DataDeletion/>}/>
+   <Route path='*' element={<NotFound/>}/>
+ </Routes>
 </BrowserRouter>
 </>
   )
