@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import Product from './pages/Product';
 import Download from './pages/Download';
 import Gallery from './pages/Gallery';
+import VideoLectures from './pages/VideoLectures';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
@@ -39,6 +40,7 @@ export default function App() {
    <Route path='/contact' element={<Contact/>}/>
    <Route path='/download' element={<Download/>}/>
    <Route path='/gallery' element={<Gallery/>}/>
+   <Route path='/video-lectures' element={<VideoLectures/>}/>
    <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
    <Route path='/data-deletion' element={<DataDeletion/>}/>
    <Route path='*' element={<NotFound/>}/>

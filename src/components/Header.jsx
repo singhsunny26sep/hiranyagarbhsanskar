@@ -18,6 +18,11 @@ function Header() {
         <div className="flex justify-between items-center py-4 sm:py-6">
           <div className="flex items-center">
             <img src={logo} alt="Hiranyagarbh Sanskar Logo" className="h-16 sm:h-20 lg:h-24 w-20 sm:w-24 lg:w-28 mr-2 sm:mr-3" />
+            <div className="ml-4 hidden sm:flex flex-wrap gap-2">
+              <span className="bg-gradient-to-r from-green-400 to-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm">Live Session</span>
+              <span className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm">Prenatal</span>
+              <span className="bg-gradient-to-r from-purple-400 to-purple-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm">Wellness</span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -30,6 +35,7 @@ function Header() {
             <Link to="/contact" className={`${isActive('/contact') ? 'text-purple-600 bg-purple-50 px-3 py-2 rounded-lg' : 'text-gray-700'} hover:text-purple-600 transition duration-300 font-medium`}>Contact</Link>
             <Link to="/profile" className={`${isActive('/profile') ? 'text-purple-600 bg-purple-50 px-3 py-2 rounded-lg' : 'text-gray-700'} hover:text-purple-600 transition duration-300 font-medium`}>Profile</Link>
             <Link to="/gallery" className={`${isActive('/gallery') ? 'text-purple-600 bg-purple-50 px-3 py-2 rounded-lg' : 'text-gray-700'} hover:text-purple-600 transition duration-300 font-medium`}>Gallery</Link>
+            <Link to="/video-lectures" className={`${isActive('/video-lectures') ? 'text-purple-600 bg-purple-50 px-3 py-2 rounded-lg' : 'text-gray-700'} hover:text-purple-600 transition duration-300 font-medium`}>Video Lectures</Link>
             <Link to="/download" className={`${isActive('/download') ? 'text-purple-600 bg-purple-50 px-3 py-2 rounded-lg' : 'text-gray-700'} hover:text-purple-600 transition duration-300 font-medium`}>Download App</Link>
           </nav>
 
@@ -108,6 +114,13 @@ function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Gallery
+              </Link>
+              <Link
+                to="/video-lectures"
+                className={`${isActive('/video-lectures') ? 'text-purple-600 bg-purple-50' : 'text-gray-700'} hover:text-purple-600 transition duration-300 font-medium px-2 py-1 rounded hover:bg-purple-50`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Video Lectures
               </Link>
               <Link
                 to="/download"
