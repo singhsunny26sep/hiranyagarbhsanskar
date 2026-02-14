@@ -38,11 +38,11 @@ function Header() {
               {/* Glow effect */}
               <div className="absolute inset-0 bg-purple-400 opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity duration-300"></div>
             </div>
-            <div className="ml-2 sm:ml-4 flex flex-wrap gap-1.5 sm:gap-2">
+            {/* <div className="ml-2 sm:ml-4 flex flex-wrap gap-1.5 sm:gap-2">
               <span className="bg-gradient-to-r from-green-400 to-green-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold shadow-sm hover:shadow-md transition-shadow cursor-pointer animate-pulse">Live</span>
               <span className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold shadow-sm hover:shadow-md transition-shadow cursor-pointer">Prenatal</span>
               <span className="bg-gradient-to-r from-pink-400 to-pink-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold shadow-sm hover:shadow-md transition-shadow cursor-pointer">Wellness</span>
-            </div>
+            </div> */}
           </div>
 
           {/* Desktop Navigation */}

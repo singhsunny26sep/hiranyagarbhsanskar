@@ -7,11 +7,7 @@ import lady from "../img/women.jpg";
 import desmukh from "../img/SANDEEP.webp";
 import v from "../img/VIRJAA.webp";
 import m from "../img/Mrs-Pradullabai-Deshmukh.png";
-import a from "../img/ashish-rathodd.png";
-import l from "../img/last-clientt.png";
-import s from "../img/swapnil-moe.png";
-import f from "../img/ffw.png";
-import la from "../img/ladye.png";
+
 import w from "../img/WhatsApp-Image-2024-05-16-at-11.28.05_9b01981f-1.jpg";
 import wa from "../img/WhatsApp-Image-2024-05-16-at-11.29.03_d3774aac.jpg";
 import waa from "../img/WhatsApp-Image-2024-05-16-at-11.32.03_04a3f6ae.jpg";
@@ -417,35 +413,11 @@ function Dashboard() {
               <p className="text-gray-600 text-xs sm:text-sm">
                 (Work experience - 13 years)</p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={s} />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr. Swapnil More</h3>
-              <p className="text-blue-600 font-medium text-sm mb-3">(B.A.M.S, MS, PhD)</p>
-              <p className="text-gray-600 text-xs sm:text-sm">
-                (Work experience - 10 years)</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={l} />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Ashish Somkunvar</h3>
-              <p className="text-blue-600 font-medium text-sm mb-3">B.P.Th (A.N.C Physiotherapist)</p>
-              <p className="text-gray-600 text-xs sm:text-sm">
-                (Work experience - 12 years)</p>
-            </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src={la} />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Dr Priyanka Khedkar</h3>
-              <p className="text-blue-600 font-medium text-sm mb-3">MBBS MD</p>
-              <p className="text-gray-600 text-xs sm:text-sm">
-                (Work experience - 6 years)</p>
-            </div>
+
+            
+            
+            
           </div>
         </div>
 
