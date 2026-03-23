@@ -1,83 +1,109 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import placeholderImg from '../img/LOGO.png';
 
 function VideoLectures() {
+  const [banners, setBanners] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [activeCategory, setActiveCategory] = useState('all');
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [imageErrors, setImageErrors] = useState({});
 
-  const videoLectures = [
-    {
-      id: 1,
-      title: "Understanding Prenatal Nutrition",
-      category: "nutrition",
-      tags: ["Prenatal", "Nutrition", "Health"],
-      duration: "15:30",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      description: "Learn about essential nutrients needed during pregnancy and how to maintain a balanced diet."
-    },
-    {
-      id: 2,
-      title: "First Trimester Care Guide",
-      category: "prenatal",
-      tags: ["Prenatal", "First Trimester", "Care"],
-      duration: "12:45",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      description: "Comprehensive guide to managing your health during the first three months of pregnancy."
-    },
-    {
-      id: 3,
-      title: "Prenatal Yoga for Beginners",
-      category: "wellness",
-      tags: ["Wellness", "Yoga", "Exercise"],
-      duration: "20:15",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      description: "Gentle yoga poses and breathing exercises designed specifically for pregnant women."
-    },
-    {
-      id: 4,
-      title: "Baby Brain Development",
-      category: "education",
-      tags: ["Education", "Development", "Baby"],
-      duration: "18:20",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      description: "Understanding fetal brain development and how you can support it during pregnancy."
-    },
-    {
-      id: 5,
-      title: "Postpartum Recovery Tips",
-      category: "postnatal",
-      tags: ["Postnatal", "Recovery", "Tips"],
-      duration: "14:10",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      description: "Essential tips for recovery and self-care after childbirth."
-    },
-    {
-      id: 6,
-      title: "Breastfeeding Basics",
-      category: "nutrition",
-      tags: ["Nutrition", "Breastfeeding", "Newborn"],
-      duration: "16:55",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      description: "Everything you need to know about starting your breastfeeding journey."
+  useEffect(() => {
+    fetchBanners();
+  }, []);
+
+  const fetchBanners = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('https://hiranyagarbha.onrender.com/hiranyagarbha/banners/getAll');
+      const result = await response.json();
+      
+      if (result.success) {
+        setBanners(result.data.data);
+      } else {
+        setError('Failed to fetch banners');
+      }
+    } catch (err) {
+      setError('Error fetching data: ' + err.message);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
+  // Get unique categories from subCategory
   const categories = [
-    { id: 'all', name: 'All Lectures', count: videoLectures.length },
-    { id: 'prenatal', name: 'Prenatal Care', count: videoLectures.filter(v => v.category === 'prenatal').length },
-    { id: 'nutrition', name: 'Nutrition', count: videoLectures.filter(v => v.category === 'nutrition').length },
-    { id: 'wellness', name: 'Wellness', count: videoLectures.filter(v => v.category === 'wellness').length },
-    { id: 'education', name: 'Education', count: videoLectures.filter(v => v.category === 'education').length },
-    { id: 'postnatal', name: 'Postnatal Care', count: videoLectures.filter(v => v.category === 'postnatal').length }
+    { id: 'all', name: 'All Lectures', count: banners.length },
+    ...banners
+      .filter(banner => banner.subCategory && banner.subCategory.name)
+      .reduce((acc, banner) => {
+        const existing = acc.find(c => c.id === banner.subCategory._id);
+        if (!existing) {
+          acc.push({
+            id: banner.subCategory._id,
+            name: banner.subCategory.name,
+            count: 1
+          });
+        } else {
+          existing.count += 1;
+        }
+        return acc;
+      }, [])
   ];
 
-  const filteredLectures = activeCategory === 'all' ? videoLectures : videoLectures.filter(video => video.category === activeCategory);
+  const filteredBanners = activeCategory === 'all' 
+    ? banners 
+    : banners.filter(banner => banner.subCategory && banner.subCategory._id === activeCategory);
+
+  const handleVideoClick = (banner) => {
+    setSelectedVideo(banner);
+  };
+
+  const closeVideoModal = () => {
+    setSelectedVideo(null);
+  };
+
+  // Handle image error - use fallback image
+  const handleImageError = (bannerId) => {
+    setImageErrors(prev => ({ ...prev, [bannerId]: true }));
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
+        <Header />
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-600 border-opacity-75 mx-auto mb-4"></div>
+            <p className="text-gray-600 text-lg">Loading video lectures...</p>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
+        <Header />
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <p className="text-red-600 text-lg mb-4">{error}</p>
+            <button 
+              onClick={fetchBanners}
+              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition duration-300"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
@@ -96,63 +122,73 @@ function VideoLectures() {
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition duration-300 ${
-                activeCategory === category.id
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-              }`}
-            >
-              {category.name} ({category.count})
-            </button>
-          ))}
-        </div>
+        {categories.length > 1 && (
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-6 py-3 rounded-full font-semibold transition duration-300 ${
+                  activeCategory === category.id
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+                }`}
+              >
+                {category.name} ({category.count})
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredLectures.map((video) => (
-            <div key={video.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-              <div className="relative">
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
-                  {video.duration}
+        {filteredBanners.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-gray-600 text-lg">No video lectures available at the moment.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredBanners.map((banner) => (
+              <div 
+                key={banner._id} 
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 cursor-pointer"
+                onClick={() => handleVideoClick(banner)}
+              >
+                <div className="relative">
+                  {/* Thumbnail with play button overlay */}
+                  <div className="w-full h-48 bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                    <img
+                      src={imageErrors[banner._id] ? placeholderImg : banner.image}
+                      alt={banner.name}
+                      className="w-full h-full object-cover"
+                      onError={() => handleImageError(banner._id)}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                    <div className="bg-white bg-opacity-95 hover:bg-opacity-100 text-purple-600 p-4 rounded-full transition duration-300 transform hover:scale-110">
+                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  {banner.subCategory && (
+                    <div className="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {banner.subCategory.name}
+                    </div>
+                  )}
                 </div>
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition duration-300 flex items-center justify-center">
-                  <button className="bg-white bg-opacity-90 hover:bg-opacity-100 text-purple-600 p-3 rounded-full transition duration-300">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{banner.name}</h3>
+                  <p className="text-gray-600 text-sm mb-4">{banner.description}</p>
+
+                  <button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-semibold transition duration-300">
+                    Watch Now
                   </button>
                 </div>
               </div>
-
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {video.tags.map((tag, index) => (
-                    <span key={index} className="bg-purple-100 text-purple-600 px-2 py-1 rounded-full text-xs font-medium">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">{video.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{video.description}</p>
-
-                <button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-semibold transition duration-300">
-                  Watch Now
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Call to Action */}
         <div className="text-center mt-16">
@@ -175,6 +211,43 @@ function VideoLectures() {
       </div>
 
       <Footer />
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl">
+            <button
+              onClick={closeVideoModal}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition duration-300"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="bg-black rounded-lg overflow-hidden">
+              <div className="relative pt-[56.25%]">
+                <video
+                  src={selectedVideo.video}
+                  controls
+                  autoPlay
+                  className="absolute inset-0 w-full h-full"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-b-lg">
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">{selectedVideo.name}</h3>
+              <p className="text-gray-600">{selectedVideo.description}</p>
+              {selectedVideo.subCategory && (
+                <span className="inline-block mt-3 bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">
+                  {selectedVideo.subCategory.name}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
