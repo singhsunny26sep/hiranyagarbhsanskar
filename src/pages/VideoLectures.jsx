@@ -18,7 +18,8 @@ function VideoLectures() {
   const fetchBanners = async () => {
     try {
       setLoading(true);
-      const response = await fetch('https://hiranyagarbha.onrender.com/hiranyagarbha/banners/getAll');
+      // Fetch all banners by setting limit to high value to get all 14+ videos
+      const response = await fetch('https://hiranyagarbha.onrender.com/hiranyagarbha/banners/getAll?limit=100');
       const result = await response.json();
       
       if (result.success) {
@@ -214,7 +215,7 @@ function VideoLectures() {
 
       {/* Video Modal */}
       {selectedVideo && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-[#000000cf] bg-opacity-90 z-50 flex items-center justify-center p-4">
           <div className="relative w-full max-w-4xl">
             <button
               onClick={closeVideoModal}
@@ -224,7 +225,7 @@ function VideoLectures() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div className="bg-black rounded-lg overflow-hidden">
+            <div className=" rounded-lg overflow-hidden">
               <div className="relative pt-[56.25%]">
                 <video
                   src={selectedVideo.video}
