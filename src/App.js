@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery';
 import VideoLectures from './pages/VideoLectures';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import DataDeletion from './pages/DataDeletion';
@@ -28,26 +29,30 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-<>
-<BrowserRouter>
-  <ScrollToTop />
-<Routes>
-    <Route path='/' element={<Dashboard/>}/>
-    <Route path='/prenatal' element={<Prenatal/>}/>
-    <Route path='/nutrition' element={<Nutrition/>}/>
-    <Route path='/wellness' element={<Wellness/>}/>
-    <Route path='/profile' element={<Login/>}/>
-    <Route path='/product' element={<Product/>}/>
-    <Route path='/contact' element={<Contact/>}/>
-    <Route path='/download' element={<Download/>}/>
-    <Route path='/gallery' element={<Gallery/>}/>
-    <Route path='/video-lectures' element={<VideoLectures/>}/>
-    <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
-    <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
-    <Route path='/data-deletion' element={<DataDeletion/>}/>
-    <Route path='*' element={<NotFound/>}/>
-  </Routes>
-</BrowserRouter>
-</>
-  )
-}
+  <>
+  <BrowserRouter>
+    <ScrollToTop />
+    <Routes>
+      <Route path='/' element={<Dashboard/>}/>
+      <Route path='/prenatal' element={<Prenatal/>}/>
+      <Route path='/nutrition' element={<Nutrition/>}/>
+      <Route path='/wellness' element={<Wellness/>}/>
+      <Route path='/profile' element={<Profile/>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/register' element={<Register/>}/>
+      <Route path='/product' element={<Product/>}/>
+      <Route path='/contact' element={<Contact/>}/>
+      <Route path='/download' element={<Download/>}/>
+      <Route path='/gallery' element={<Gallery/>}/>
+      <Route path='/register' element={<Register/>}/>
+
+      <Route path='/video-lectures' element={<VideoLectures/>}/>
+      <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
+      <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
+      <Route path='/data-deletion' element={<DataDeletion/>}/>
+      <Route path='*' element={<NotFound/>}/>
+    </Routes>
+  </BrowserRouter>
+  </>
+    )
+  }

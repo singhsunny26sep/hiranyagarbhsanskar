@@ -6,22 +6,117 @@ function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
-    message: ''
+    mobile: '',
+    city: '',
+    message: '',
+    isPermissionGiven: true
   });
 
+  const [formErrors, setFormErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+    // Clear error for this field when user types
+    if (formErrors[name]) {
+      setFormErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    const errors = {};
+    
+    // Name validation
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required';
+    }
+    
+    // Email validation
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Email address is invalid';
+    }
+    
+    // Mobile validation
+    if (!formData.mobile.trim()) {
+      errors.mobile = 'Mobile number is required';
+    } else if (!/^\d{10,15}$/.test(formData.mobile.replace(/\s/g, ''))) {
+      errors.mobile = 'Please enter a valid mobile number (10-15 digits)';
+    }
+    
+    // City validation
+    if (!formData.city.trim()) {
+      errors.city = 'City is required';
+    }
+    
+    // Message validation
+    if (!formData.message.trim()) {
+      errors.message = 'Message is required';
+    }
+    
+    return errors;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send to API)
-    alert('Thank you for contacting us! We will get back to you soon.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    const errors = validateForm();
+    if (Object.keys(errors).length === 0) {
+      setLoading(true);
+      try {
+        // Prepare data for API
+        const apiData = {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          mobile: formData.mobile.trim(), // Keeping as string as per API example
+          city: formData.city.trim(),
+          message: formData.message.trim(),
+          isPermissionGiven: formData.isPermissionGiven
+        };
+        
+        console.log('Contact form submission:', apiData);
+        
+        // Send request to API
+        const response = await fetch('https://hiranyagarbha.onrender.com/hiranyagarbha/contact-us/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(apiData)
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+          // Reset form on successful submission
+          setFormData({
+            name: '',
+            email: '',
+            mobile: '',
+            city: '',
+            message: '',
+            isPermissionGiven: true
+          });
+          alert('Thank you for contacting us! We will get back to you soon.');
+        } else {
+          throw new Error(result.message || 'Failed to submit contact form');
+        }
+      } catch (err) {
+        console.error('Contact form error:', err);
+        alert(err.message || 'Failed to submit contact form. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      setFormErrors(errors);
+    }
   };
 
   return (
@@ -40,82 +135,133 @@ function Contact() {
           </p>
         </div>
 
-        {/* Contact Form */}
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300"
-                  placeholder="Enter your full name"
-                />
-              </div>
+         {/* Contact Form */}
+         <div className="max-w-2xl mx-auto">
+           <div className="bg-white rounded-xl shadow-lg p-8">
+             <form onSubmit={handleSubmit} className="space-y-6">
+               <div>
+                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                   Full Name
+                 </label>
+                 <input
+                   type="text"
+                   id="name"
+                   name="name"
+                   value={formData.name}
+                   onChange={handleChange}
+                   required
+                   className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300 ${formErrors.name ? 'border-red-500' : ''}`}
+                   placeholder="Enter your full name"
+                 />
+                 {formErrors.name && <p className="mt-1 text-sm text-red-600">{formErrors.name}</p>}
+               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300"
-                  placeholder="Enter your email address"
-                />
-              </div>
+               <div>
+                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                   Email Address
+                 </label>
+                 <input
+                   type="email"
+                   id="email"
+                   name="email"
+                   value={formData.email}
+                   onChange={handleChange}
+                   required
+                   className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300 ${formErrors.email ? 'border-red-500' : ''}`}
+                   placeholder="Enter your email address"
+                 />
+                 {formErrors.email && <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>}
+               </div>
 
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300"
-                  placeholder="Enter your phone number"
-                />
-              </div>
+               <div>
+                 <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-2">
+                   Mobile Number
+                 </label>
+                 <input
+                   type="tel"
+                   id="mobile"
+                   name="mobile"
+                   value={formData.mobile}
+                   onChange={handleChange}
+                   className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300 ${formErrors.mobile ? 'border-red-500' : ''}`}
+                   placeholder="Enter your mobile number"
+                 />
+                 {formErrors.mobile && <p className="mt-1 text-sm text-red-600">{formErrors.mobile}</p>}
+               </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300 resize-none"
-                  placeholder="Tell us how we can help you..."
-                ></textarea>
-              </div>
+               <div>
+                 <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
+                   City
+                 </label>
+                 <input
+                   type="text"
+                   id="city"
+                   name="city"
+                   value={formData.city}
+                   onChange={handleChange}
+                   required
+                   className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300 ${formErrors.city ? 'border-red-500' : ''}`}
+                   placeholder="Enter your city"
+                 />
+                 {formErrors.city && <p className="mt-1 text-sm text-red-600">{formErrors.city}</p>}
+               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
+               <div>
+                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                   Message
+                 </label>
+                 <textarea
+                   id="message"
+                   name="message"
+                   value={formData.message}
+                   onChange={handleChange}
+                   required
+                   rows="5"
+                   className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300 resize-none ${formErrors.message ? 'border-red-500' : ''}`}
+                   placeholder="Tell us how we can help you..."
+                 ></textarea>
+                 {formErrors.message && <p className="mt-1 text-sm text-red-600">{formErrors.message}</p>}
+               </div>
+
+               <div className="flex items-start">
+                 <div className="flex items-center h-5">
+                   <input
+                     id="isPermissionGiven"
+                     name="isPermissionGiven"
+                     type="checkbox"
+                     checked={formData.isPermissionGiven}
+                     onChange={handleChange}
+                     className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                   />
+                 </div>
+                 <div className="ml-3 mt-0.5">
+                   <label htmlFor="isPermissionGiven" className="text-sm text-gray-700">
+                     I agree to receive updates and notifications
+                   </label>
+                 </div>
+               </div>
+               
+               {Object.keys(formErrors).length > 0 && (
+                 <div className="p-4 mb-4 bg-red-50 border-l-4 border-red-500 text-sm text-red-700" role="alert">
+                   <p>Please fix the following errors:</p>
+                   <ul className="list-disc pl-5">
+                     {Object.entries(formErrors).map(([field, message]) => (
+                       <li key={field}>{message}</li>
+                     ))}
+                   </ul>
+                 </div>
+               )}
+               
+               <button
+                 type="submit"
+                 disabled={loading}
+                 className={`w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+               >
+                 {loading ? 'Sending Message...' : 'Send Message'}
+               </button>
+             </form>
+           </div>
+         </div>
 
         {/* Contact Information */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">

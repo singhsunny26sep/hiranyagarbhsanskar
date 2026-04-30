@@ -45,48 +45,56 @@ function Header() {
             </div> */}
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            {[
-              { path: '/', label: 'Dashboard', icon: '🏠' },
-              { path: '/prenatal', label: 'Prenatal', icon: '👶' },
-              { path: '/nutrition', label: 'Nutrition', icon: '🥗' },
-              { path: '/wellness', label: 'Wellness', icon: '🧘' },
-              { path: '/product', label: 'Products', icon: '🛍️' },
-              { path: '/gallery', label: 'Gallery', icon: '📸' },
-              { path: '/video-lectures', label: 'Videos', icon: '🎬' },
-              { path: '/contact', label: 'Contact', icon: '📞' },
-            ].map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`relative px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 group overflow-hidden ${
-                  isActive(item.path) 
-                    ? 'text-purple-700 bg-purple-100 shadow-sm' 
-                    : 'text-gray-600 hover:text-purple-600'
-                }`}
-              >
-                <span className="relative z-10 flex items-center gap-1">
-                  <span className="text-xs">{item.icon}</span>
-                  {item.label}
-                </span>
-                {/* Hover background effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-pink-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                {/* Active indicator */}
-                {isActive(item.path) && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
-                )}
-              </Link>
-            ))}
-            
-            {/* CTA Button */}
-            <Link
-              to="/profile"
-              className="ml-4 px-5 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
-            >
-              My Profile
-            </Link>
-          </nav>
+           {/* Desktop Navigation */}
+           <nav className="hidden lg:flex items-center space-x-1">
+             {[
+               { path: '/', label: 'Dashboard', icon: '🏠' },
+               { path: '/prenatal', label: 'Prenatal', icon: '👶' },
+               { path: '/nutrition', label: 'Nutrition', icon: '🥗' },
+               { path: '/wellness', label: 'Wellness', icon: '🧘' },
+               { path: '/product', label: 'Products', icon: '🛍️' },
+               { path: '/gallery', label: 'Gallery', icon: '📸' },
+               { path: '/video-lectures', label: 'Videos', icon: '🎬' },
+               { path: '/contact', label: 'Contact', icon: '📞' },
+             ].map((item) => (
+               <Link
+                 key={item.path}
+                 to={item.path}
+                 className={`relative px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 group overflow-hidden ${
+                   isActive(item.path) 
+                     ? 'text-purple-700 bg-purple-100 shadow-sm' 
+                     : 'text-gray-600 hover:text-purple-600'
+                 }`}
+               >
+                 <span className="relative z-10 flex items-center gap-1">
+                   <span className="text-xs">{item.icon}</span>
+                   {item.label}
+                 </span>
+                 {/* Hover background effect */}
+                 <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-pink-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                 {/* Active indicator */}
+                 {isActive(item.path) && (
+                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                 )}
+               </Link>
+             ))}
+             
+             {/* Auth Buttons */}
+             <div className="flex items-center space-x-3">
+               <Link
+                 to="/login"
+                 className="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 border border-purple-500 text-purple-600 hover:bg-purple-50"
+               >
+                 Login
+               </Link>
+               <Link
+                 to="/register"
+                 className="ml-3 px-5 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+               >
+                 Sign up
+               </Link>
+             </div>
+           </nav>
 
           {/* Mobile Menu Button */}
           <button
