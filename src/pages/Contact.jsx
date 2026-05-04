@@ -273,7 +273,7 @@ function Contact() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Phone</h3>
-            <p className="text-gray-600">+91 8149343628</p>
+            <p className="text-gray-600">+91 7972833428</p>
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
