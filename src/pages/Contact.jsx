@@ -209,7 +209,7 @@ function Contact() {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message <span className="text-red-500">*</span>
+                    Message 
                   </label>
                  <textarea
                    id="message"
@@ -238,7 +238,7 @@ function Contact() {
                   <div className="ml-3 mt-0.5">
                     <label htmlFor="isPermissionGiven" className="text-sm text-gray-700">
                       I agree and authorise to call/ send SMS/ WhatsApp/ RCS/ Promotional/ Informational notifications. This will override the registry with DNC/NDNC.
-                    </label>
+                    </label><span className="text-red-500">*</span>
                   </div>
                </div>
                
