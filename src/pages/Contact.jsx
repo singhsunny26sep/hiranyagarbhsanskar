@@ -236,7 +236,7 @@ function Contact() {
                  </div>
                   <div className="ml-3 mt-0.5">
                     <label htmlFor="isPermissionGiven" className="text-sm text-gray-700">
-                      I agree and authorise to call/ send SMS/ WhatsApp/ RCS/ Promotional/ Informational messages/notifications. This will override the registry with DNC/NDNC.
+                      I agree and authorise to call/ send SMS/ WhatsApp/ RCS/ Promotional/ Informational notifications. This will override the registry with DNC/NDNC.
                     </label>
                   </div>
                </div>
