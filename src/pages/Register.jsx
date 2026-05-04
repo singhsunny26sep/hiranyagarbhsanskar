@@ -10,7 +10,7 @@ function Register() {
     mobile: '',
     password: '',
     role: 'user',
-    fcmToken: 'fsdfsdfdsfds',
+    fcmToken: '',
     isPermissionGiven: true
   });
 
@@ -139,75 +139,89 @@ function Register() {
           </div>
 
            <form onSubmit={handleSubmit} className="space-y-6">
-             <div>
-               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                 Full Name
-               </label>
-               <input
-                 type="text"
-                 id="name"
-                 name="name"
-                 value={formData.name}
-                 onChange={handleChange}
-                 required
-                 className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 ${formErrors.name ? 'border-red-500' : ''}`}
-                 placeholder="Enter your full name"
-               />
-               {formErrors.name && <p className="mt-1 text-sm text-red-600">{formErrors.name}</p>}
-             </div>
-             
-             <div>
-               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                 Email Address
-               </label>
-               <input
-                 type="email"
-                 id="email"
-                 name="email"
-                 value={formData.email}
-                 onChange={handleChange}
-                 className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 ${formErrors.email ? 'border-red-500' : ''}`}
-                 placeholder="Enter your email (optional if mobile provided)"
-               />
-               {formErrors.email && <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>}
-             </div>
-             
-             <div>
-               <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-2">
-                 Mobile Number
-               </label>
-               <input
-                 type="tel"
-                 id="mobile"
-                 name="mobile"
-                 value={formData.mobile}
-                 onChange={handleChange}
-                 className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 ${formErrors.mobile ? 'border-red-500' : ''}`}
-                 placeholder="Enter your 10-digit mobile number (optional if email provided)"
-               />
-               {formErrors.mobile && <p className="mt-1 text-sm text-red-600">{formErrors.mobile}</p>}
-             </div>
-             
-             <div>
-               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                 Password
-               </label>
-               <input
-                 type="password"
-                 id="password"
-                 name="password"
-                 value={formData.password}
-                 onChange={handleChange}
-                 required
-                 className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 ${formErrors.password ? 'border-red-500' : ''}`}
-                 placeholder="Create a password"
-               />
-               {formErrors.password && <p className="mt-1 text-sm text-red-600">{formErrors.password}</p>}
-             </div>
-             
-        
-             
-             <div className="flex items-start">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 ${formErrors.name ? 'border-red-500' : ''}`}
+                  placeholder="Enter your full name"
+                />
+                {formErrors.name && <p className="mt-1 text-sm text-red-600">{formErrors.name}</p>}
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 ${formErrors.email ? 'border-red-500' : ''}`}
+                  placeholder="Enter your email (optional if mobile provided)"
+                />
+                {formErrors.email && <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>}
+              </div>
+              
+              <div>
+                <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-2">
+                  Mobile Number
+                </label>
+                <input
+                  type="tel"
+                  id="mobile"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 ${formErrors.mobile ? 'border-red-500' : ''}`}
+                  placeholder="Enter your 10-digit mobile number (optional if email provided)"
+                />
+                {formErrors.mobile && <p className="mt-1 text-sm text-red-600">{formErrors.mobile}</p>}
+              </div>
+              
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 ${formErrors.password ? 'border-red-500' : ''}`}
+                  placeholder="Create a password"
+                />
+                {formErrors.password && <p className="mt-1 text-sm text-red-600">{formErrors.password}</p>}
+              </div>
+              
+              <div>
+                <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-2">
+                  Role
+                </label>
+                <select
+                  id="role"
+                  name="role"
+                  value={formData.role}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                >
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+              
+              <div className="flex items-start">
                <div className="flex items-center h-5">
                  <input
                    id="isPermissionGiven"
