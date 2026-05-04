@@ -234,11 +234,11 @@ function Contact() {
                      className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
                    />
                  </div>
-                 <div className="ml-3 mt-0.5">
-                   <label htmlFor="isPermissionGiven" className="text-sm text-gray-700">
-                     I agree to receive updates and notifications
-                   </label>
-                 </div>
+                  <div className="ml-3 mt-0.5">
+                    <label htmlFor="isPermissionGiven" className="text-sm text-gray-700">
+                      I agree and authorise to call/ send SMS/ WhatsApp/ RCS/ Promotional/ Informational messages/notifications. This will override the registry with DNC/NDNC.
+                    </label>
+                  </div>
                </div>
                
                {Object.keys(formErrors).length > 0 && (
