@@ -139,10 +139,10 @@ function Contact() {
          <div className="max-w-2xl mx-auto">
            <div className="bg-white rounded-xl shadow-lg p-8">
              <form onSubmit={handleSubmit} className="space-y-6">
-               <div>
-                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                   Full Name
-                 </label>
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
                  <input
                    type="text"
                    id="name"
@@ -156,10 +156,10 @@ function Contact() {
                  {formErrors.name && <p className="mt-1 text-sm text-red-600">{formErrors.name}</p>}
                </div>
 
-               <div>
-                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                   Email Address
-                 </label>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
                  <input
                    type="email"
                    id="email"
@@ -173,26 +173,27 @@ function Contact() {
                  {formErrors.email && <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>}
                </div>
 
-               <div>
-                 <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-2">
-                   Mobile Number
-                 </label>
-                 <input
-                   type="tel"
-                   id="mobile"
-                   name="mobile"
-                   value={formData.mobile}
-                   onChange={handleChange}
-                   className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300 ${formErrors.mobile ? 'border-red-500' : ''}`}
-                   placeholder="Enter your mobile number"
-                 />
+                <div>
+                  <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-2">
+                    Mobile Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    required
+                    className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300 ${formErrors.mobile ? 'border-red-500' : ''}`}
+                    placeholder="Enter your mobile number"
+                  />
                  {formErrors.mobile && <p className="mt-1 text-sm text-red-600">{formErrors.mobile}</p>}
                </div>
 
-               <div>
-                 <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
-                   City
-                 </label>
+                <div>
+                  <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
+                    City <span className="text-red-500">*</span>
+                  </label>
                  <input
                    type="text"
                    id="city"
@@ -206,10 +207,10 @@ function Contact() {
                  {formErrors.city && <p className="mt-1 text-sm text-red-600">{formErrors.city}</p>}
                </div>
 
-               <div>
-                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                   Message
-                 </label>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Message <span className="text-red-500">*</span>
+                  </label>
                  <textarea
                    id="message"
                    name="message"
