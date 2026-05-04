@@ -283,7 +283,7 @@ function Contact() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Email</h3>
-            <p className="text-gray-600">info@hiranyagarbhsanskar.com</p>
+            <p className="text-gray-600">contact@hiranyagarbhsanskar.co</p>
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
