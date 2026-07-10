@@ -118,39 +118,67 @@ function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-purple-200 hover:text-white transition duration-300">Dashboard</Link></li>
-              <li><Link to="/prenatal" className="text-purple-200 hover:text-white transition duration-300">Prenatal Care</Link></li>
-              <li><Link to="/nutrition" className="text-purple-200 hover:text-white transition duration-300">Nutrition</Link></li>
-              <li><Link to="/wellness" className="text-purple-200 hover:text-white transition duration-300">Wellness</Link></li>
-              <li><Link to="/profile" className="text-purple-200 hover:text-white transition duration-300">Profile</Link></li>
-              <li><Link to="/privacy-policy" className="text-purple-200 hover:text-white transition duration-300">Privacy Policy</Link></li>
-              <li><Link to="/terms-and-conditions" className="text-purple-200 hover:text-white transition duration-300">Terms & Conditions</Link></li>
-            </ul>
+{/* Quick Links */}
+           <div>
+             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+<ul className="space-y-2">
+                <li><Link to="/" className="text-purple-200 hover:text-white transition duration-300">Dashboard</Link></li>
+                <li><Link to="/prenatal" className="text-purple-200 hover:text-white transition duration-300">Prenatal Care</Link></li>
+                <li><Link to="/nutrition" className="text-purple-200 hover:text-white transition duration-300">Nutrition</Link></li>
+                <li><Link to="/wellness" className="text-purple-200 hover:text-white transition duration-300">Wellness</Link></li>
+                <li><Link to="/subscription" className="text-purple-200 hover:text-white transition duration-300">Subscription</Link></li>
+                <li><Link to="/profile" className="text-purple-200 hover:text-white transition duration-300">Profile</Link></li>
+                <li><Link to="/privacy-policy" className="text-purple-200 hover:text-white transition duration-300">Privacy Policy</Link></li>
+                <li><Link to="/terms-and-conditions" className="text-purple-200 hover:text-white transition duration-300">Terms & Conditions</Link></li>
+              </ul>
+             <div className="mt-4">
+               <h4 className="text-lg font-semibold mb-3">Download App</h4>
+               <div className="flex flex-col gap-2">
+                 <a
+                   href="https://play.google.com/store/apps/details?id=com.hiranyagarbhsanskar&hl=en_IN"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-3 py-2 rounded-lg flex items-center gap-2 transition duration-300 text-sm font-medium shadow-md"
+                 >
+                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                     <path d="M3,20.5V3.5C3,2.91667 3.45833,2.5 4,2.5H17.59C18.1333,2.5 18.6167,2.71 19,3.1C19.3833,3.49 19.6167,3.99167 19.7,4.575L19,4.5L15.5,8L19,11.425C19.6167,11.9917 19.925,12.725 19.925,13.55C19.925,14.375 19.6167,15.1167 19.0333,15.6833C18.45,16.25 17.7667,16.4833 17.2233,16.4833H17.225L19,20.5L4,20.5C3.45833,20.5 3,20.0833 3,19.5V20.5Z" />
+                   </svg>
+                   Google Play
+                 </a>
+                 <a
+                   href="https://apps.apple.com/app/id6477528990"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-3 py-2 rounded-lg flex items-center gap-2 transition duration-300 text-sm font-medium shadow-md"
+                 >
+                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                     <path d="M17.5682 12.0129C17.5871 9.2114 19.8887 7.96445 19.9873 7.90421C17.8759 5.95215 15.8555 5.74191 15.1285 5.72262C13.3203 5.56475 11.5315 6.78148 10.7578 6.78148C9.97148 6.78148 8.50586 5.867 7.16309 5.867C5.12586 5.867 3.47657 6.6985 2.64502 8.07315C1.27539 10.4332 2.22559 14.1768 4.3545 16.0361C5.09766 16.7828 6.24024 18.1415 7.44727 18.1415C8.65429 18.1415 9.35645 17.4687 10.7871 17.4687C12.252 17.4687 12.8291 18.1415 14.1416 18.1415C15.4014 18.1415 16.3281 17.1172 16.9951 16.3696C17.7871 15.4878 18.2109 14.4635 18.2666 14.4123C18.2666 14.4123 17.5682 13.7885 17.5871 12.0129M15.0234 3.76379C16.3359 2.16827 16.2217 1.06055 16.1621 0.619141C15.2002 -0.203125 13.9092 0.494141 12.5146 1.15747C11.3818 1.72914 9.94141 2.35735 8.60352 2.35735C7.26563 2.35735 5.97534 1.72914 4.98975 1.15747C3.59473 0.494141 2.1709 0 1.209 0C1.14941 0.446899 1.02051 1.55461 2.33398 3.23645C3.36035 4.46357 4.51172 5.72351 5.90723 5.72351C7.24707 5.72351 9.47461 4.88245 10.6074 3.76038C11.9824 2.4225 12.9179 2.41699 12.9179 2.41699C12.9179 2.41699 11.6016 2.83827 12.9668 4.10004C14.4482 5.46008 16.1592 6.39832 17.4229 6.83697C18.897 7.37652 19.9395 7.62344 19.999 7.62344C19.999 7.62344 15.0234 3.76379 12.9746 2.35735L15.0234 3.76379Z" />
+                   </svg>
+                   App Store
+</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Our Services</h4>
+              <ul className="space-y-2">
+                <li className="text-purple-200">Health Monitoring</li>
+                <li className="text-purple-200">Nutrition Planning</li>
+                <li className="text-purple-200">Wellness Programs</li>
+                <li className="text-purple-200">Educational Resources</li>
+                <button
+                  onClick={() => setIsSupportModalOpen(true)}
+                  className="text-purple-200 hover:text-white transition duration-300 text-left cursor-pointer"
+                >
+                  24/7 Support
+                </button>
+              </ul>
+            </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2">
-              <li className="text-purple-200">Health Monitoring</li>
-              <li className="text-purple-200">Nutrition Planning</li>
-              <li className="text-purple-200">Wellness Programs</li>
-              <li className="text-purple-200">Educational Resources</li>
-              <button
-                onClick={() => setIsSupportModalOpen(true)}
-                className="text-purple-200 hover:text-white transition duration-300 text-left cursor-pointer"
-              >
-                24/7 Support
-              </button>
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
+          {/* Bottom Bar */}
         <div className="border-t border-purple-500 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-purple-200">&copy; 2024 Hiranyagarbh Sanskar. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">

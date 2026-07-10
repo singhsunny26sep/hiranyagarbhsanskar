@@ -11,6 +11,7 @@ import VideoLectures from './pages/VideoLectures';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Subscription from './pages/Subscription';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import DataDeletion from './pages/DataDeletion';
@@ -43,14 +44,15 @@ export default function App() {
       <Route path='/product' element={<Product/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/download' element={<Download/>}/>
-      <Route path='/gallery' element={<Gallery/>}/>
-      <Route path='/register' element={<Register/>}/>
+<Route path='/gallery' element={<Gallery/>}/>
+       <Route path='/subscription' element={<Subscription/>}/>
 
-      <Route path='/video-lectures' element={<VideoLectures/>}/>
-      <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
-      <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
-      <Route path='/data-deletion' element={<DataDeletion/>}/>
-      <Route path='*' element={<NotFound/>}/>
+<Route path='/video-lectures' element={<VideoLectures/>}/>
+       <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
+       <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
+       <Route path='/data-deletion' element={<DataDeletion/>}/>
+       <Route path='/subscription' element={<Subscription/>}/>
+       <Route path='*' element={<NotFound/>}/>
     </Routes>
   </BrowserRouter>
   </>
