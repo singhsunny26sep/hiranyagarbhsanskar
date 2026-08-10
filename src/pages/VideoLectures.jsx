@@ -154,29 +154,26 @@ function VideoLectures() {
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 cursor-pointer"
                 onClick={() => handleVideoClick(banner)}
               >
-                <div className="relative">
-                  {/* Thumbnail with play button overlay */}
-                  <div className="w-full h-48 bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                    <img
-                      src={imageErrors[banner._id] ? placeholderImg : banner.image}
-                      alt={banner.name}
-                      className="w-full h-full object-cover"
-                      onError={() => handleImageError(banner._id)}
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
-                    <div className="bg-white bg-opacity-95 hover:bg-opacity-100 text-purple-600 p-4 rounded-full transition duration-300 transform hover:scale-110">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                  </div>
-                  {banner.subCategory && (
-                    <div className="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {banner.subCategory.name}
-                    </div>
-                  )}
-                </div>
+<div className="relative h-48">
+                   <img
+                     src={imageErrors[banner._id] ? placeholderImg : banner.image}
+                     alt={banner.name}
+                     className="w-full h-full object-cover"
+                     onError={() => handleImageError(banner._id)}
+                   />
+                   <div className="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                     <div className="bg-white bg-opacity-95 hover:bg-opacity-100 text-purple-600 p-4 rounded-full transition duration-300 transform hover:scale-110">
+                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                         <path d="M8 5v14l11-7z"/>
+                       </svg>
+                     </div>
+                   </div>
+                   {banner.subCategory && (
+                     <div className="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                       {banner.subCategory.name}
+                     </div>
+                   )}
+                 </div>
 
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">{banner.name}</h3>

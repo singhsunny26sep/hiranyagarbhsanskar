@@ -35,14 +35,20 @@ function Dashboard() {
                pregnancy experience. Access personalized care, nutrition
                guidance, and wellness support all in one place.
              </p>
-             <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 items-center">
-               <Link
-                 to="/prenatal"
-                 className="bg-purple-600 hover:bg-purple-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition duration-300 transform hover:scale-105 text-center"
-               >
-                 Start Your Journey
-               </Link>
-               <Link
+<div className="flex flex-col sm:flex-row gap-4 justify-center px-4 items-center">
+                <Link
+                  to="/prenatal"
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition duration-300 transform hover:scale-105 text-center"
+                >
+                  Start Your Journey
+                </Link>
+                <Link
+                  to="/today-journey"
+                  className="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition duration-300 transform hover:scale-105 text-center shadow-lg"
+                >
+                  Today's Journey
+                </Link>
+                <Link
                  to="/subscription"
                  className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition duration-300 transform hover:scale-105 text-center shadow-lg"
                >

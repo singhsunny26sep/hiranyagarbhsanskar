@@ -1,0 +1,54 @@
+{
+  "babyDevelopment": {
+    "week": 20,
+    "title": "Baby's First Sense",
+    "tip": "Your baby's taste buds are now developed. Foods you eat may influence their taste preferences after birth."
+  },
+  "nutritionTip": {
+    "tip": "Include iron-rich foods",
+    "description": "Try spinach, lentils, and lean meats to support increased blood volume during pregnancy."
+  },
+  "waterGoal": 8,
+  "activityGoal": {
+    "target": 30,
+    "current": 0,
+    "unit": "minutes",
+    "description": "Gentle walking or prenatal yoga recommended today. Stay active, stay healthy!"
+  },
+  "meditation": {
+    "description": "Take 10 minutes today for guided meditation focusing on bonding with your baby.",
+    "duration": "10 minutes"
+  },
+  "garbhSanskarMusic": {
+    "track": "Morning Prayer - Gentle Vedic Chants",
+    "description": "Sacred sounds to create positive vibrations for your baby's spiritual development."
+  },
+  "affirmation": {
+    "text": "I am strong, I am capable, and I am nurturing new life with love and care."
+  },
+  "learningLesson": {
+    "title": "The Power of Garbh Sanskar",
+    "content": "Ancient wisdom teaches that positive thoughts and sounds during pregnancy influence the baby's consciousness. Speaking lovingly and playing calming music creates lasting bonds."
+  },
+  "moodOptions": [
+    { "value": "happy", "label": "😊 Happy" },
+    { "value": "calm", "label": "😌 Calm" },
+    { "value": "tired", "label": "😴 Tired" },
+    { "value": "anxious", "label": "😟 Anxious" },
+    { "value": "excited", "label": "🤰 Excited" }
+  ],
+  "upcomingAppointments": [
+    {
+      "title": "Prenatal Check-up",
+      "doctor": "Dr. Viraja Deshmukh",
+      "date": "Tomorrow",
+      "time": "10:00 AM"
+    },
+    {
+      "title": "Nutrition Consultation",
+      "doctor": "Dietitian Team",
+      "date": "Next Week",
+      "time": "2:00 PM"
+    }
+  ]
+}
