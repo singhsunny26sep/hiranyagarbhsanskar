@@ -28,7 +28,7 @@ function Dashboard() {
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 sm:mb-6">
               Welcome to Your
-              <span className="text-purple-600 block">HiranyaGarbha </span>
+              <span className="text-purple-600 block">hiranyagarbh garbhasanskar </span>
             </h1>
 <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
                Your trusted companion for a healthy, mindful, and joyful
