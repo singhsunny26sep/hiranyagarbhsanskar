@@ -92,7 +92,7 @@ function Footer() {
             </div>
             <div className="flex space-x-4">
               {/* Instagram */}
-              <a href="https://www.instagram.com/hiranyagarbha_garbhasanskar123/" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white transition duration-300">
+              <a href="https://www.instagram.com/hiranya_garbha_garbhasanskar?stkn=OXJ5ZDM4aXNxaGFh" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white transition duration-300">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.004 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.253 14.894 3.762 13.743 3.762 12.446s.49-2.448 1.364-3.323c.875-.875 2.026-1.365 3.323-1.365s2.448.49 3.323 1.365c.875.875 1.365 2.026 1.365 3.323s-.49 2.448-1.365 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.718 0c-.99 0-1.805-.322-2.475-.962-.67-.64-1.007-1.475-1.007-2.465s.337-1.825.995-2.465c.67-.64 1.485-.962 2.487-.962s1.805.322 2.475.962c.67.64 1.007 1.475 1.007 2.465s-.337 1.825-.995 2.465c-.67.64-1.485.962-2.487.962z"/>
                 </svg>
@@ -110,7 +110,7 @@ function Footer() {
                 </svg>
               </a>
               {/* YouTube */}
-              <a href="https://www.youtube.com/@hiranyagarbhagarbhasanskar" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white transition duration-300">
+              <a href="https://www.youtube.com/@HiranyagarbhGarbhsanskar" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white transition duration-300">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
