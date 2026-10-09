@@ -42,7 +42,7 @@ function Login() {
     console.log('Login attempt:', apiData);
     
     try {
-      const response = await fetch('https://hiranyagarbha.onrender.com/hiranyagarbha/auth/login', {
+      const response = await fetch('https://api.hiranyagarbhsanskar.co/hiranyagarbha/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

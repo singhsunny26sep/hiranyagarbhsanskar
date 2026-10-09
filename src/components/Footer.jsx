@@ -127,6 +127,7 @@ function Footer() {
                 <li><Link to="/nutrition" className="text-purple-200 hover:text-white transition duration-300">Nutrition</Link></li>
                 <li><Link to="/wellness" className="text-purple-200 hover:text-white transition duration-300">Wellness</Link></li>
                 <li><Link to="/subscription" className="text-purple-200 hover:text-white transition duration-300">Subscription</Link></li>
+                <li><Link to="/appointment" className="text-purple-200 hover:text-white transition duration-300">Appointment</Link></li>
                 <li><Link to="/profile" className="text-purple-200 hover:text-white transition duration-300">Profile</Link></li>
                 <li><Link to="/privacy-policy" className="text-purple-200 hover:text-white transition duration-300">Privacy Policy</Link></li>
                 <li><Link to="/terms-and-conditions" className="text-purple-200 hover:text-white transition duration-300">Terms & Conditions</Link></li>

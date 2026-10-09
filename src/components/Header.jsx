@@ -54,8 +54,9 @@ function Header() {
                { path: '/wellness', label: 'Wellness', icon: '🧘' },
                { path: '/product', label: 'Products', icon: '🛍️' },
                { path: '/gallery', label: 'Gallery', icon: '📸' },
-               { path: '/video-lectures', label: 'Videos', icon: '🎬' },
-               { path: '/contact', label: 'Contact', icon: '📞' },
+                { path: '/video-lectures', label: 'Videos', icon: '🎬' },
+                { path: '/appointment', label: 'Appointment', icon: '📅' },
+                { path: '/contact', label: 'Contact', icon: '📞' },
              ].map((item) => (
                <Link
                  key={item.path}

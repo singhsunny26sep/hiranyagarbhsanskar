@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Subscription from "./pages/Subscription";
+import Appointment from "./pages/Appointment";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DataDeletion from "./pages/DataDeletion";
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/product" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/appointment" element={<Appointment />} />
           <Route path="/download" element={<Download />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/subscription" element={<Subscription />} />

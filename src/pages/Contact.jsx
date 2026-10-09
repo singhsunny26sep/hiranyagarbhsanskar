@@ -85,7 +85,7 @@ function Contact() {
 
         // Send request to API
         const response = await fetch(
-          "https://hiranyagarbha.onrender.com/hiranyagarbha/contact-us/create",
+          "https://api.hiranyagarbhsanskar.co/hiranyagarbha/contact-us/create",
           {
             method: "POST",
             headers: {

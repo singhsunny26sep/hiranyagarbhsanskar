@@ -92,7 +92,7 @@ function Register() {
         
         console.log('Registration attempt:', apiData);
         
-        const response = await fetch('https://hiranyagarbha.onrender.com/hiranyagarbha/auth/register', {
+        const response = await fetch('https://api.hiranyagarbhsanskar.co/hiranyagarbha/auth/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -19,7 +19,7 @@ function VideoLectures() {
     try {
       setLoading(true);
       // Fetch all banners by setting limit to high value to get all 14+ videos
-      const response = await fetch('https://hiranyagarbha.onrender.com/hiranyagarbha/banners/getAll?limit=100');
+      const response = await fetch('https://api.hiranyagarbhsanskar.co/hiranyagarbha/banners/getAll?limit=100');
       const result = await response.json();
       
       if (result.success) {
