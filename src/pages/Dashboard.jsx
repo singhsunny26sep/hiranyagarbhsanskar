@@ -49,7 +49,7 @@ function Dashboard() {
                 Today's Journey
               </Link>
               <Link
-                to="/subscription"
+                to="/patient-subscriptions/preview"
                 className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition duration-300 transform hover:scale-105 text-center shadow-lg"
               >
                 Subscribe Now

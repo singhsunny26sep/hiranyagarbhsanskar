@@ -53,6 +53,12 @@ function Login() {
       const result = await response.json();
       
       if (response.ok && result.success) {
+        if (result.token) {
+          localStorage.setItem("token", result.token);
+        }
+        if (result.data && result.data.user) {
+          localStorage.setItem("user", JSON.stringify(result.data.user));
+        }
         alert('Login successful!');
         window.location.href = '/';
       } else {

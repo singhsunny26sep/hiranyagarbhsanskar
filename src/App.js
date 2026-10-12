@@ -12,6 +12,8 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Subscription from "./pages/Subscription";
+import PatientSubscriptionPreview from "./pages/PatientSubscriptionPreview";
+import PatientSubscriptionCheckout from "./pages/PatientSubscriptionCheckout";
 import Appointment from "./pages/Appointment";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -49,6 +51,14 @@ export default function App() {
           <Route path="/download" element={<Download />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/subscription" element={<Subscription />} />
+          <Route
+            path="/patient-subscriptions/preview"
+            element={<PatientSubscriptionPreview />}
+          />
+          <Route
+            path="/patient-subscriptions/checkout"
+            element={<PatientSubscriptionCheckout />}
+          />
 
           <Route path="/video-lectures" element={<VideoLectures />} />
           <Route path="/today-journey" element={<TodayJourney />} />
@@ -58,7 +68,6 @@ export default function App() {
             element={<TermsAndConditions />}
           />
           <Route path="/data-deletion" element={<DataDeletion />} />
-          <Route path="/subscription" element={<Subscription />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

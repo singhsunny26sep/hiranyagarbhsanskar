@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const API_URL = "https://api.hiranyagarbhsanskar.co/hiranyagarbha/doctors/get-all?limit=100";
+const API_BASE = "https://api.hiranyagarbhsanskar.co/hiranyagarbha";
+const API_URL = `${API_BASE}/doctors/get-all?limit=100`;
+const APPOINTMENT_BOOK_URL = `${API_BASE}/appointments/book`;
 
 function Appointment() {
   const [doctors, setDoctors] = useState([]);
@@ -19,6 +21,10 @@ function Appointment() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitMsg, setSubmitMsg] = useState("");
+  const [slots, setSlots] = useState([]);
+  const [slotsLoading, setSlotsLoading] = useState(false);
+  const [slotsError, setSlotsError] = useState("");
+  const [selectedSlot, setSelectedSlot] = useState(null);
 
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -52,6 +58,10 @@ function Appointment() {
       ...prev,
       [name]: value,
     }));
+
+    if (name === "date" && selectedDoctor && value) {
+      fetchSlots(selectedDoctor._id || selectedDoctor.id, value);
+    }
   };
 
   const handleBookClick = (doctor) => {
@@ -65,6 +75,63 @@ function Appointment() {
       concern: "",
     });
     setSubmitMsg("");
+    setSlots([]);
+    setSelectedSlot(null);
+    setSlotsError("");
+  };
+
+  const fetchSlots = async (doctorId, date) => {
+    if (!doctorId || !date) return;
+    setSlotsLoading(true);
+    setSlotsError("");
+    setSlots([]);
+    setSelectedSlot(null);
+    setFormData((prev) => ({ ...prev, time: "" }));
+
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await fetch(
+        `${API_BASE}/appointments/slots?doctorId=${doctorId}&appointmentDate=${date}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          },
+        }
+      );
+      const result = await response.json();
+      if (result.success) {
+        const available =
+          result.data?.availableSlots?.filter((s) => s.available) || [];
+        setSlots(available);
+      } else {
+        setSlotsError(result.message || "No slots available");
+      }
+    } catch (err) {
+      console.error("Error fetching slots:", err);
+      setSlotsError("Failed to fetch available slots.");
+    } finally {
+      setSlotsLoading(false);
+    }
+  };
+
+  const handleSlotSelect = (slot) => {
+    setSelectedSlot(slot);
+    const timeStr = new Date(slot.startTime)
+      .toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })
+      .replace(/\u202f/g, " ");
+    setFormData((prev) => ({
+      ...prev,
+      time: timeStr,
+    }));
+  };
+
+  const formatSlotTime = (isoString) => {
+    return new Date(isoString)
+      .toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })
+      .replace(/\u202f/g, " ");
   };
 
   const handleSubmit = async (e) => {
@@ -72,28 +139,41 @@ function Appointment() {
     setSubmitting(true);
     setSubmitMsg("");
 
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      setSubmitMsg("Please log in to book an appointment.");
+      setSubmitting(false);
+      return;
+    }
+
+    const startDateTime = selectedSlot?.startTime || new Date(
+      `${formData.date}T${formData.time}`
+    ).toISOString();
+    const endDateTime = selectedSlot?.endTime || new Date(
+      new Date(startDateTime).getTime() + 30 * 60000
+    ).toISOString();
+
     const appointmentData = {
       doctorId: selectedDoctor._id || selectedDoctor.id,
-      doctorName: selectedDoctor.fullName || selectedDoctor.name,
-      patientName: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      date: formData.date,
-      time: formData.time,
+      patientId: user._id || user.id,
+      appointmentDate: formData.date,
+      startTime: startDateTime,
+      endTime: endDateTime,
       concern: formData.concern,
+      scheduledBy: "ADMIN",
     };
 
     try {
-      const response = await fetch(
-        "https://api.hiranyagarbhsanskar.co/hiranyagarbha/appointment/create",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(appointmentData),
-        }
-      );
+      const response = await fetch(APPOINTMENT_BOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(appointmentData),
+      });
       const result = await response.json();
       if (response.ok && result.success) {
         setSubmitMsg("Appointment booked successfully!");
@@ -340,15 +420,42 @@ function Appointment() {
                       >
                         Preferred Time *
                       </label>
-                      <input
-                        type="time"
-                        id="time"
-                        name="time"
-                        value={formData.time}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
-                      />
+                      {formData.date && selectedDoctor && slotsLoading ? (
+                        <div className="flex items-center space-x-3 text-gray-600">
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-purple-600"></div>
+                          <span>Loading available slots...</span>
+                        </div>
+                      ) : formData.date && selectedDoctor && slots.length > 0 ? (
+                        <div className="grid grid-cols-3 gap-2 max-h-48 overflow-y-auto">
+                          {slots.map((slot, idx) => (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={() => handleSlotSelect(slot)}
+                              className={`px-3 py-2 text-sm font-medium rounded-lg border transition duration-200 ${
+                                selectedSlot?.startTime === slot.startTime
+                                  ? "bg-purple-600 text-white border-purple-600"
+                                  : "bg-gray-50 text-gray-800 border-gray-300 hover:bg-purple-100"
+                              }`}
+                            >
+                              {formatSlotTime(slot.startTime)}
+                            </button>
+                          ))}
+                        </div>
+                      ) : formData.date && selectedDoctor && slotsError ? (
+                        <p className="text-sm text-gray-500 mb-2">{slotsError}</p>
+                      ) : null}
+                      {!slots.length && (
+                        <input
+                          type="time"
+                          id="time"
+                          name="time"
+                          value={formData.time}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                        />
+                      )}
                     </div>
                     <div>
                       <label
