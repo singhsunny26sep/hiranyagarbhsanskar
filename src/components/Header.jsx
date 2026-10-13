@@ -69,17 +69,13 @@ function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3">
           {/* Brand */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0">
+          <Link to="/" className="flex mr-10 items-center gap-2.5 shrink-0">
             <img
               src={logo}
               alt="Hiranyagarbh Sanskar Logo"
-              className="h-10 sm:h-11 lg:h-12 w-10 sm:w-11 lg:w-12 object-contain"
+              className="h-24 sm:h-11 lg:h-24 w-24 sm:w-11 lg:w-24 object-contain"
             />
-            <span className="hidden sm:block text-lg sm:text-xl font-bold whitespace-nowrap bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent">
-              Hiranyagarbh Sanskar
-            </span>
           </Link>
-
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
@@ -96,7 +92,6 @@ function Header() {
                 {item.label}
               </Link>
             ))}
-
             {/* Auth / User Menu */}
             <div className="flex items-center ml-3 pl-3 border-l border-purple-100">
               {authenticated ? (
@@ -162,8 +157,6 @@ function Header() {
               )}
             </div>
           </nav>
-
-          {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
             className="lg:hidden p-2 rounded-xl text-purple-600 hover:bg-purple-50 transition-colors duration-200"
@@ -198,8 +191,6 @@ function Header() {
                   {item.label}
                 </Link>
               ))}
-
-              {/* Quick Actions */}
               <div className="mt-3 pt-3 border-t border-purple-100 flex gap-2.5">
                 <a href="tel:+919999999999" className="flex-1 text-center py-2.5 bg-green-500 text-white rounded-xl font-medium hover:bg-green-600 transition-colors duration-200">
                   📞 Call Now

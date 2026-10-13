@@ -476,7 +476,7 @@ function Appointment() {
                         <div className="grid grid-cols-3 gap-2 max-h-48 overflow-y-auto">
                           {slots.map((slot, idx) => (
                             <button
-                              key={idx}
+                              key={slot._id || slot.startTime || idx}
                               type="button"
                               onClick={() => handleSlotSelect(slot)}
                               className={`px-3 py-2 text-sm font-medium rounded-lg border transition duration-200 ${
@@ -491,8 +491,12 @@ function Appointment() {
                         </div>
                       ) : formData.date && selectedDoctor && slotsError ? (
                         <p className="text-sm text-gray-500 mb-2">{slotsError}</p>
+                      ) : formData.date && selectedDoctor ? (
+                        <p className="text-sm text-gray-500 mb-2">
+                          No slots available for this date.
+                        </p>
                       ) : null}
-                      {!slots.length && (
+                      {!slotsLoading && !slots.length && (
                         <input
                           type="time"
                           id="time"
