@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -101,13 +102,20 @@ function Register() {
         });
         
         const result = await response.json();
-        
+
         if (response.ok && result.success) {
-          if (result.token) {
-            localStorage.setItem("token", result.token);
+          const token =
+            result.token ||
+            result.data?.token ||
+            result.accessToken ||
+            result.data?.accessToken;
+          const userData = result.data?.user || result.user || result.data;
+
+          if (token) {
+            localStorage.setItem('token', token);
           }
-          if (result.data && result.data.user) {
-            localStorage.setItem("user", JSON.stringify(result.data.user));
+          if (userData) {
+            localStorage.setItem('user', JSON.stringify(userData));
           }
           setFormData({
             name: '',
@@ -121,7 +129,7 @@ function Register() {
           });
           setRating(0);
           alert('Registration successful! Please check your email to verify your account.');
-          window.location.href = '/login';
+          navigate('/login', { replace: true });
         } else {
           throw new Error(result.message || 'Registration failed');
         }

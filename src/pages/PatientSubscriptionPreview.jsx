@@ -32,7 +32,14 @@ function PatientSubscriptionPreview() {
           await response.json().catch(() => ({ success: false, message: "Invalid response" }));
 
         if (response.ok && result.success) {
-          const items = result.data?.packages || result.packages || result.data || [];
+          const items =
+            Array.isArray(result.data?.packages)
+              ? result.data?.packages
+              : Array.isArray(result.packages)
+              ? result.packages
+              : Array.isArray(result.data)
+              ? result.data
+              : [];
           setPackages(items);
         } else {
           setError(result.message || "Failed to fetch subscription packages");
@@ -59,7 +66,7 @@ function PatientSubscriptionPreview() {
       return;
     }
     setError("");
-    navigate("/patient-subscriptions/checkout", {
+    navigate("/patient-patient-subscriptions/checkout", {
       state: {
         packageId: selectedPackage._id || selectedPackage.id,
         trimester,

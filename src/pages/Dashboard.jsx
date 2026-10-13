@@ -979,9 +979,9 @@ function Dashboard() {
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.1212125168386!2d75.0023156755216!3d20.46021410706267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd9550d24188fd7%3A0x31225d70186a5302!2sBapji%20Jeevandeep%20Multispeciality%20Hospital!5e0!3m2!1sen!2sin!4v1777567339254!5m2!1sen!2sin"
           width="600"
           height="450"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+           allowFullScreen
+           loading="lazy"
+           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
 

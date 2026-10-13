@@ -7,9 +7,8 @@ import {
   RAZORPAY_KEY_ID,
   TRIMETHER_OPTIONS,
   getAuthHeaders,
-  getUserId,
 } from "../config/api";
-import { loadRazorpayScript } from "../utils/razorpay";
+import { loadRazorpayScript, extractRazorpayResponse } from "../utils/razorpay";
 
 function PatientSubscriptionCheckout() {
   const location = useLocation();
@@ -96,8 +95,6 @@ function PatientSubscriptionCheckout() {
       return;
     }
 
-    const userId = getUserId();
-
     setProcessing(true);
     setError("");
 
@@ -107,7 +104,6 @@ function PatientSubscriptionCheckout() {
       const orderPayload = {
         packageId,
         trimester,
-        userId,
       };
 
       const orderResponse = await fetch(API_URL.createOrder, {
@@ -132,7 +128,7 @@ function PatientSubscriptionCheckout() {
 
       const options = {
         key: orderData.keyId || RAZORPAY_KEY_ID,
-        order_id: orderData.orderId || orderData.id,
+        order_id: orderData.orderId || orderData.razorpayOrderId || orderData.id,
         amount: orderData.amount,
         currency: orderData.currency || "INR",
         name: orderData.name || "Hiranyagarbha Sanskar",
@@ -142,6 +138,12 @@ function PatientSubscriptionCheckout() {
         image: orderData.image,
         handler: async (response) => {
           await verifyPayment(response);
+        },
+        modal: {
+          ondismiss: () => {
+            setProcessing(false);
+            setError("Payment cancelled. You can try again anytime.");
+          },
         },
         prefill: {
           name: orderData.name || "",
@@ -167,13 +169,19 @@ function PatientSubscriptionCheckout() {
     setProcessing(true);
     setError("");
 
-    const verifyPayload = {
-      packageId,
-      trimester,
-      razorpay_payment_id: response.razorpay_payment_id,
-      razorpay_order_id: response.razorpay_order_id,
-      razorpay_signature: response.razorpay_signature,
-    };
+    console.log("Razorpay checkout response:", response);
+
+    const verifyPayload = extractRazorpayResponse(response);
+
+    if (
+      !verifyPayload.razorpayOrderId ||
+      !verifyPayload.razorpayPaymentId ||
+      !verifyPayload.razorpaySignature
+    ) {
+      setProcessing(false);
+      setError("Payment details missing. Please try again.");
+      return;
+    }
 
     try {
       const verifyResponse = await fetch(API_URL.verifyPayment, {

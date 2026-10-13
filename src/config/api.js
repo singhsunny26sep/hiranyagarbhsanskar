@@ -1,9 +1,11 @@
 export const API_BASE = "https://api.hiranyagarbhsanskar.co/hiranyagarbha";
 
 export const API_URL = {
-  getPackages: `${API_BASE}/subscriptions/packages`,
-  createOrder: `${API_BASE}/subscriptions/checkout`,
-  verifyPayment: `${API_BASE}/subscriptions/verify`,
+  getPackages: `${API_BASE}/subscriptions/getAll`,
+  createOrder: `${API_BASE}/patient-subscriptions/checkout`,
+  verifyPayment: `${API_BASE}/patient-subscriptions/verify`,
+  mySubscriptions: `${API_BASE}/patient-subscriptions/my`,
+  getSubscription: (id) => `${API_BASE}/subscriptions/get/${id}`,
 };
 
 export const RAZORPAY_KEY_ID =

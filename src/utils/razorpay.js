@@ -20,3 +20,36 @@ export const loadRazorpayScript = async () => {
   });
   return loadPromise;
 };
+
+export const extractRazorpayResponse = (response) => {
+  let source = response;
+  if (typeof source === "string") {
+    try {
+      source = JSON.parse(source);
+    } catch (err) {
+      source = {};
+    }
+  }
+
+  const normalize = (key) => String(key).toLowerCase().replace(/[_\-\s]/g, "");
+
+  const findValue = (obj, targets, depth = 0) => {
+    if (!obj || typeof obj !== "object" || depth > 2) return undefined;
+    for (const [key, value] of Object.entries(obj)) {
+      if (targets.indexOf(normalize(key)) !== -1) return value;
+    }
+    for (const value of Object.values(obj)) {
+      if (value && typeof value === "object") {
+        const found = findValue(value, targets, depth + 1);
+        if (found !== undefined) return found;
+      }
+    }
+    return undefined;
+  };
+
+  return {
+    razorpayOrderId: findValue(source, ["razorpayorderid", "orderid"]),
+    razorpayPaymentId: findValue(source, ["razorpaypaymentid", "paymentid"]),
+    razorpaySignature: findValue(source, ["razorpaysignature", "signature"]),
+  };
+};

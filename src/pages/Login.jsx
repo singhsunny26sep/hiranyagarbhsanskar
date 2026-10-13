@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [formData, setFormData] = useState({
     type: 'email',
     email: '',
@@ -51,16 +53,29 @@ function Login() {
       });
       
       const result = await response.json();
-      
+      console.log('Login response:', result);
+
       if (response.ok && result.success) {
-        if (result.token) {
-          localStorage.setItem("token", result.token);
+        const token =
+          result.token ||
+          result.data?.token ||
+          result.accessToken ||
+          result.data?.accessToken;
+        const userData = result.data?.user || result.user || result.data;
+
+        if (!token) {
+          throw new Error(
+            'Login succeeded but no session token was received. Please try again.'
+          );
         }
-        if (result.data && result.data.user) {
-          localStorage.setItem("user", JSON.stringify(result.data.user));
+
+        localStorage.setItem('token', token);
+        if (userData) {
+          localStorage.setItem('user', JSON.stringify(userData));
         }
         alert('Login successful!');
-        window.location.href = '/';
+        const from = location.state?.from || '/';
+        navigate(from, { replace: true });
       } else {
         throw new Error(result.message || 'Login failed');
       }

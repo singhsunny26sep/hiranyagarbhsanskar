@@ -80,6 +80,26 @@ function Appointment() {
     setSlotsError("");
   };
 
+  const extractSlots = (result) => {
+    const data = result?.data;
+    let list = [];
+    if (Array.isArray(data)) {
+      list = data;
+    } else if (data && typeof data === "object") {
+      list = Array.isArray(data.availableSlots)
+        ? data.availableSlots
+        : Array.isArray(data.slots)
+        ? data.slots
+        : [];
+    }
+    if (!list.length && Array.isArray(result?.slots)) {
+      list = result.slots;
+    }
+    return list.filter((s) =>
+      s && typeof s.available === "boolean" ? s.available : true
+    );
+  };
+
   const fetchSlots = async (doctorId, date) => {
     if (!doctorId || !date) return;
     setSlotsLoading(true);
@@ -102,10 +122,10 @@ function Appointment() {
         }
       );
       const result = await response.json();
-      if (result.success) {
-        const available =
-          result.data?.availableSlots?.filter((s) => s.available) || [];
-        setSlots(available);
+      if (response.ok && result.success) {
+        setSlots(extractSlots(result));
+      } else if (response.status === 401) {
+        setSlotsError("Session expired. Please log in again.");
       } else {
         setSlotsError(result.message || "No slots available");
       }
@@ -119,19 +139,28 @@ function Appointment() {
 
   const handleSlotSelect = (slot) => {
     setSelectedSlot(slot);
-    const timeStr = new Date(slot.startTime)
-      .toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })
-      .replace(/\u202f/g, " ");
     setFormData((prev) => ({
       ...prev,
-      time: timeStr,
+      time: formatSlotTime(slot.startTime),
     }));
   };
 
   const formatSlotTime = (isoString) => {
-    return new Date(isoString)
-      .toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })
-      .replace(/\u202f/g, " ");
+    if (!isoString) return "";
+    const d = new Date(isoString);
+    if (!isNaN(d.getTime())) {
+      return d
+        .toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })
+        .replace(/\u202f/g, " ");
+    }
+    const match = String(isoString).match(/(\d{1,2}):(\d{2})/);
+    if (match) {
+      let h = parseInt(match[1], 10);
+      const ampm = h >= 12 ? "PM" : "AM";
+      h = h % 12 || 12;
+      return `${h}:${match[2]} ${ampm}`;
+    }
+    return String(isoString);
   };
 
   const handleSubmit = async (e) => {
@@ -148,9 +177,26 @@ function Appointment() {
       return;
     }
 
-    const startDateTime = selectedSlot?.startTime || new Date(
-      `${formData.date}T${formData.time}`
-    ).toISOString();
+    if (!selectedSlot && !formData.time) {
+      setSubmitMsg(
+        slots.length > 0
+          ? "Please select a time slot."
+          : "Please enter a preferred time."
+      );
+      setSubmitting(false);
+      return;
+    }
+
+    let startDateTime = selectedSlot?.startTime;
+    if (!startDateTime) {
+      const parsed = new Date(`${formData.date}T${formData.time}`);
+      if (isNaN(parsed.getTime())) {
+        setSubmitMsg("Please enter a valid date and time.");
+        setSubmitting(false);
+        return;
+      }
+      startDateTime = parsed.toISOString();
+    }
     const endDateTime = selectedSlot?.endTime || new Date(
       new Date(startDateTime).getTime() + 30 * 60000
     ).toISOString();
@@ -409,6 +455,7 @@ function Appointment() {
                         name="date"
                         value={formData.date}
                         onChange={handleInputChange}
+                        min={new Date().toISOString().split("T")[0]}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
                       />

@@ -14,12 +14,16 @@ import Register from "./pages/Register";
 import Subscription from "./pages/Subscription";
 import PatientSubscriptionPreview from "./pages/PatientSubscriptionPreview";
 import PatientSubscriptionCheckout from "./pages/PatientSubscriptionCheckout";
+import SubscriptionDetails from "./pages/SubscriptionDetails";
 import Appointment from "./pages/Appointment";
+import MySubscriptions from "./pages/MySubscriptions";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DataDeletion from "./pages/DataDeletion";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import TodayJourney from "./pages/TodayJourney";
+import ProtectedRoute from "./components/ProtectedRoute";
+import GuestRoute from "./components/GuestRoute";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 function ScrollToTop() {
@@ -42,22 +46,24 @@ export default function App() {
           <Route path="/prenatal" element={<Prenatal />} />
           <Route path="/nutrition" element={<Nutrition />} />
           <Route path="/wellness" element={<Wellness />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/login" element={<GuestRoute><Login /></GuestRoute>} />
+          <Route path="/register" element={<GuestRoute><Register /></GuestRoute>} />
           <Route path="/product" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/appointment" element={<Appointment />} />
+          <Route path="/appointment" element={<ProtectedRoute><Appointment /></ProtectedRoute>} />
           <Route path="/download" element={<Download />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/subscription" element={<Subscription />} />
+           <Route path="/subscription" element={<ProtectedRoute><Subscription /></ProtectedRoute>} />
+           <Route path="/my-subscriptions" element={<ProtectedRoute><MySubscriptions /></ProtectedRoute>} />
+           <Route path="/subscription/:id" element={<ProtectedRoute><SubscriptionDetails /></ProtectedRoute>} />
           <Route
             path="/patient-subscriptions/preview"
-            element={<PatientSubscriptionPreview />}
+            element={<ProtectedRoute><PatientSubscriptionPreview /></ProtectedRoute>}
           />
           <Route
-            path="/patient-subscriptions/checkout"
-            element={<PatientSubscriptionCheckout />}
+            path="/patient-patient-subscriptions/checkout"
+            element={<ProtectedRoute><PatientSubscriptionCheckout /></ProtectedRoute>}
           />
 
           <Route path="/video-lectures" element={<VideoLectures />} />
